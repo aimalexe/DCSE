@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bio data</title>
+        
+        
+        
+        <style>
+            body{
+                background-image:radial-gradient(circle,red,darkred);
+                background-size: cover;
+            }
+            h1{
+                font-family: sans-serif;
+                color: lemonchiffon;
+                text-decoration: underline;
+            }
+            form{
+                font-style: oblique;
+                color: #fff;
+                padding: 30px;
+                font-family: cursive;
+            }
+            button{
+                outline: none;
+                font-family: sans-serif;
+                border: none;
+                padding: 15px 30px;
+                font-size: 18px;
+                background-color: rgb(23,52,89);
+                color: #f8f9f9;
+                border-radius: 15px;
+                box-shadow: 5px 5px 1px .2px #000;
+                margin-left: 370px;
+            }
+            p{
+                text-align: center;
+                font-family: cursive;
+                color: #fff;
+            }
+        </style>
+    
+    
+    </head>
+    <body>
+        
+        <h1 align="center">BIODATA</h1>
+        
+        
+        <form align="center">
+            
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="Full Name" autocapitalize><br><br>
+            
+            
+            <label for="name">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" placeholder="Date of Birth"><br><br>
+            
+            
+            <label for="regno">Regestration no:</label>
+            <input type="text" name="regno" id="regno" placeholder="Reg/Etea no"><br><br>
+            
+            
+            <label for="usrnm">Username:</label>
+            <input type="text" name="usrnm" id="usrnm" placeholder="example123@---.com"><br><br>
+            
+            
+            
+            <label for="pswrd">Password:</label>
+            <input type="password" name="pswrd" id="pswrd" placeholder="Strong Eight Characters"><br><br>
+            
+            
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender">
+                <option>Male</option>
+                <option selected>Female</option>
+            </select><br><br>
+            
+            
+            
+            <label for="ckb">Courses:</label><br>
+            
+            <label for="ckb1">Computer Fundamental:</label>
+            <input type="checkbox" name="ckb1" id="ckb1"><br>
+            
+            <label for="ckb2">Computer Fundamental (lab):</label>
+            <input type="checkbox" name="ckb2" id="ckb2"><br>
+            
+            <label for="rad">Are the courses easy?:</label>
+            <input type="radio" name="rad" id="rad"><br><br>
+        
+        </form>
+        
+        <button name="btn" id="btn" onclick="submitt()">Click here to <b>submitt</b></button>
+            <hr>
+        
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>
+        <p id="p6"></p>
+        
+        
+        
+        
+        <script>
+            function submitt(){
+                var name, dob, regno, usrnm, gender;
+                
+                name = document.getElementById("name").value;
+                document.getElementById("p1").innerHTML=name;
+                
+                dob = document.getElementById("dob").value;
+                document.getElementById("p2").innerHTML=dob;
+                
+                regno = document.getElementById("regno").value;
+                document.getElementById("p3").innerHTML=regno;
+                
+                usrnm = document.getElementById("usrnm").value;
+                document.getElementById("p4").innerHTML=usrnm;
+                
+                gender = document.getElementById("gender").value;
+                document.getElementById("p5").innerHTML=gender;
+            }
+        </script>
+    </body>
+</html>
