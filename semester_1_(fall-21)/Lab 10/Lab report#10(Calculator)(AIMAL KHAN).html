@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+     <title>calculator</title>
+          
+     
+     <style>
+         body{
+             background-image: radial-gradient(circle,purple, maroon);
+         }
+         h1{
+             margin-top: 10px;
+             color: #fff;
+             text-align: center;
+             text-decoration: underline;
+             font-family:monospace;
+         }
+         form{
+             padding: 5px;
+             text-align: center;
+             border-style: groove;
+             border-width: thin;
+             border-radius: 15px;
+             margin: 100px 100px ;
+             color: #fff;
+         }
+         input{
+             padding:10px .2px;
+             border-radius: .1px;
+         }
+         #operators{
+             background-color:#0f0;
+         }
+         #n1,#n2{
+             background-color:aqua;
+         }
+         button{
+                margin-left:150px; 
+                outline: none;
+                font-family: sans-serif;
+                border: none;
+                padding: 15px 20px;
+                font-size: 18px;
+                background-color: #000;
+                color: #f8f9f9;
+                border-radius: 15px;
+                box-shadow: 5px 5px 1px .2px #ff2323;
+         }
+         p{
+             background-color: #000;
+             color: white;
+             text-align: center;
+             font-size: +30px;
+             margin: 50px 190px 0px 150px;
+         }
+     
+     </style>
+ </head>
+
+ <body>
+     <h1>Web Calculator</h1>
+     
+     <form>
+         <label for="n1" id="l1">Number 1st</label>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <label for="operators">Operator</label>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <label for="n2">Number 2nd</label><br><br>
+        
+         
+         <input type="number" name="n1" id="n1" placeholder="enter any number">
+         <input type="text" id="operators" placeholder="insert an operator" required>
+         <input type="number" name="n2" id="n2" placeholder="enter any number"><br>
+           
+     </form>
+     
+     <button onclick="calc()">Calculate</button>
+     
+     <p id="result"></p>
+     
+     
+     
+      <script>
+         function calc()
+         {
+             var result;
+             var n1= parseInt(document.getElementById("n1").value);
+             var n2 = parseInt(document.getElementById("n2").value);
+             var oper = document.getElementById("operators").value;
+             
+             
+            
+             if (oper == "+"){
+                 result = n1 + n2;
+                 document.getElementById("result").innerHTMl="The <b>sum</b> is" +result;
+                }
+             else if(oper == "-"){
+                 result = n1 - n2;
+                 document.getElementById("result").innerHTML="The <b>Subtraction</b> is "+result;
+                }
+             else if(oper == "*"){
+                 result = n1 * n2;
+               document.getElementById("result").innerHTML="The <b>Multiplication</b> is " +result;
+                }
+             else if(oper == "/"){
+                 result=n1/n2;
+               document.getElementById("result").innerHTML="The <b>Division</b> is " +result;
+            
+             }
+             else if(oper == "%"){
+                 result=n1%n2;
+              document.getElementById("result").innerHTML="The <b>Reminder</b> is " +result;
+                 
+             }
+             else{
+                 document.getElementById("result").innerHTML="Invalid Formate or Syntax Error!";
+             }
+         }
+     </script>
+ </body>
+</html>
