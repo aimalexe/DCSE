@@ -1,0 +1,35 @@
+body{
+    background-image:radial-gradient(circle,red,darkred);
+    background-size: cover;
+}
+h1{
+    font-family: sans-serif;
+    color: lemonchiffon;
+    text-decoration: underline;
+}
+form{
+    font-style: oblique;
+    color: #fff;
+    padding: 30px;
+    font-family: cursive;
+}
+button{
+    outline: none;
+    font-family: sans-serif;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: rgb(23,52,89);
+    color: #f8f9f9;
+    border-radius: 15px;
+    box-shadow: 5px 5px 1px .2px #000;
+    margin-left: 370px;
+}
+button:hover{
+    border: 2px solid #fff;
+}
+p{
+    text-align: center;
+    font-family: cursive;
+    color: #fff;
+}

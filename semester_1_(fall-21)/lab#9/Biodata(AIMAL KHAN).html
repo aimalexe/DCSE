@@ -1,44 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>bio data</title>
-
-        <style>
-            body{
-                background-image:radial-gradient(circle,red,darkred);
-                background-size: cover;
-            }
-            h1{
-                font-family: sans-serif;
-                color: lemonchiffon;
-                text-decoration: underline;
-            }
-            form{
-                font-style: oblique;
-                color: #fff;
-                padding: 30px;
-                font-family: cursive;
-            }
-            button{
-                outline: none;
-                font-family: sans-serif;
-                border: none;
-                padding: 15px 30px;
-                font-size: 18px;
-                background-color: rgb(23,52,89);
-                color: #f8f9f9;
-                border-radius: 15px;
-                box-shadow: 5px 5px 1px .2px #000;
-                margin-left: 370px;
-            }
-            p{
-                text-align: center;
-                font-family: cursive;
-                color: #fff;
-            }
-        </style>
-    
+        <title>Bio data</title>
+        <link rel="stylesheet" type="text/css" href="./Biodata(AIMAL KHAN).css"
     </head>
+    
     <body>
         
         <h1 align="center">BIODATA</h1>
@@ -88,26 +54,6 @@
         <p id="p5"></p>
         <p id="p6"></p>
         
-        <script>
-            function submitt(){
-                var name, dob, regno, usrnm, gender;
-                
-                name = document.getElementById("name").value;
-                document.getElementById("p1").innerHTML=name;
-                
-                dob = document.getElementById("dob").value;
-                document.getElementById("p2").innerHTML=dob;
-                
-                regno = document.getElementById("regno").value;
-                document.getElementById("p3").innerHTML=regno;
-                
-                usrnm = document.getElementById("usrnm").value;
-                document.getElementById("p4").innerHTML=usrnm;
-                
-                gender = document.getElementById("gender").value;
-                document.getElementById("p5").innerHTML=gender;
-            }
-        </script>
-        
+        <script src="./Biodata(AIMAL KHAN).js"></script>
     </body>
 </html>
