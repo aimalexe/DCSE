@@ -4,95 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculator</title>
-
-    <style>
-        html{
-            background: #fff;
-        }
-        body{
-            background-color:rgb(151, 12, 151);
-            border: #fff 2px solid;
-            border-radius: 5%;
-            margin: 5%;
-        }
-        h1{
-            margin-top: 5%;
-            color: #fff;
-            text-align: center;
-            text-decoration: underline;
-            font-family:monospace;
-        }
-        form{
-            padding: 5px;
-            padding-bottom: 2%;
-            text-align: center;
-            border-style: solid;
-            border-width: thin;
-            border-radius: 15px;
-            margin: 100px 8%;
-            color: #fff;
-            background-color: rgb(214, 41, 214);
-        }
-        input{
-            padding:10px .2px;
-            border-radius: .1px;
-            border-color:#fff;
-            color: #fff;
-        }
-        #operators{
-            background-color:rgb(168, 21, 168);
-            text-align: center;
-            text-emphasis: bold;
-            border: #fff 1px solid;
-
-        }
-        #operators:hover{
-            background-color:rgb(139, 12, 139);
-            text-emphasis: bold;
-            border: #fff 2px solid;
-        }
-        #n1,#n2{
-            background-color:rgb(168, 21, 168);
-            text-align: center;
-            text-emphasis: bold;
-            border: #fff 1px solid;
-        }
-        #n1:hover{
-            background-color:rgb(139, 12, 139);
-            text-emphasis: bold;
-            border: #fff 2px solid;
-        }
-        #n2:hover{
-            background-color:rgb(139, 12, 139);
-            text-emphasis: bold;
-            border: #fff 2px solid;
-        }
-        button{
-               margin-left:150px; 
-               outline: none;
-               font-family: sans-serif;
-               border: none;
-               padding: 15px 20px;
-               font-size: 18px;
-               background-color:rgb(204, 31, 204);
-               color: #fff;
-               border: 1px solid #fff;
-               border-radius: 8%;
-        }
-        button:hover{
-            opacity: 0.5;
-            color: #fff;
-        }
-        p{
-            background-color:rgb(214, 41, 214);
-            color: white;
-            text-align: center;
-            font-size: +30px;
-            margin: 10%;
-            border: #fff 1px solid;  ;
-        }
-    </style>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./Calculator(AIMAL KHAN).css">
 </head>
 
 <body>
@@ -112,33 +25,7 @@
     <button onclick="calc()">Calculate</button>
     <p id="result"></p>
     
-     <script>
-        function calc()
-        {
-            var result;
-            var n1= parseInt(document.getElementById("n1").value);
-            var n2 = parseInt(document.getElementById("n2").value);
-            var oper = document.getElementById("operators").value;
-           
-            if (oper == "+"){
-                result = n1 + n2;
-                document.getElementById("result").innerHTMl="The <b>sum</b> is" +result;
-            }else if(oper == "-"){
-                result = n1 - n2;
-                document.getElementById("result").innerHTML="The <b>Subtraction</b> is " +result;
-            }else if(oper == "*"){
-                result = n1 * n2;
-              document.getElementById("result").innerHTML="The <b>Multiplication</b> is " +result;
-            }else if(oper == "/"){
-                result=n1/n2;
-              document.getElementById("result").innerHTML="The <b>Division</b> is " +result;
-            }else if(oper == "%"){
-                result=n1%n2;
-             document.getElementById("result").innerHTML="The <b>Reminder</b> is " +result;    
-            }else{
-                document.getElementById("result").innerHTML="Invalid Format or Syntax Error!";
-            }
-        }
+     <script src="./Calculator(AIMAL KHAN).js">     
     </script>
     
 </body>
