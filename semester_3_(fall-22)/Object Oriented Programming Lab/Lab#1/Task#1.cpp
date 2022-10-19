@@ -26,7 +26,7 @@ class Heater {
         void cooler(){
             temperature -= 5;
         }
-        //displaing value.
+        //displaying value.
         void show(){
             int currentTemperature = getTemperature();
             cout<<"Temperature: "<<currentTemperature<<endl;
@@ -35,7 +35,7 @@ class Heater {
 
 int main(){
     Heater h1, h2;
-    //h1
+    //heater-1
     cout<<"\nDemonstrating Heater-1:\n";
     h1.show();
     h1.warmer();
@@ -43,7 +43,7 @@ int main(){
     h1.cooler();
     h1.show();
 
-    //h2
+    //heater-2
     cout<<"\nDemonstrating Heater-2:\n";
     h2.show();
     h2.cooler();

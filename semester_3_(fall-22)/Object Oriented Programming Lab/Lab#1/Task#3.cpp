@@ -11,13 +11,14 @@ class BankAccount{
     private:
         int balance;
     public:
+        //Constructing initially to 1000:
         BankAccount():balance(1000) {}
         void deposit(int d){
             balance += d;
         }
         void withdrawl(int w){
             if (balance <= 500)
-                cout << "\nInsufficient Balance" ;
+                cout << "\n\t**Insufficient Balance**" ;
             else
                 balance -= w;
         }

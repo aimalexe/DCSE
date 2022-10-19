@@ -32,7 +32,7 @@ class Point{
         int getY(){
             return y;
         }
-        //display
+        //displaying Point
          void show(){
             cout<< "(" << getX() << " , " << getY() << ")" <<endl;
          }
@@ -40,6 +40,8 @@ class Point{
 
 int main(){
     Point p1, p2(5,2);
+
+    //Point-1
     cout<< "Original p1:\t";
     p1.show();
     cout<< "Updated p1:\t";
@@ -47,6 +49,7 @@ int main(){
     p1.setY(3);
     p1.show();
 
+    //Point-2
     cout<< "Original p2:\t";
     p2.show();
     cout<< "Updated p2:\t";
