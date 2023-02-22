@@ -26,8 +26,8 @@ class Shape{
         float area;
         float volume;
     public:
-        void calcArea(){ cout<<"Area:\t" << 0 << endl; }
-        virtual void calcVolume(){ cout<<"Volume:\t" << 0 << endl; }
+        virtual void calcArea() {}//{ cout<<"Area:\t" << 0 << endl; }
+        virtual void calcVolume() {}//{ cout<<"Volume:\t" << 0 << endl; }
         virtual void display() = 0;
 };
 
@@ -38,28 +38,46 @@ class Point: public Shape{
     public:
         Point(): x(0), y(0) {}
         Point(float a, float b): x(a), y(b) {}
-        void clacArea(){ cout<<"Area of Point:\t" << 0 << endl; }
-        void clacVolume(){ cout<<"Volume of Point:\t" << 0 << endl; }
+        void clacArea(){
+            area = 0;
+            cout<<"Area of Point:\t" << area << endl;
+        }
+        void clacVolume(){
+            volume = 0;
+            cout<<"Volume of Point:\t" << volume << endl;
+        }
         void display (){ cout<< "(" << x <<" , "<< y << ")" <<endl; }
 };
 class Circle : public Point{
     protected:
         float radius;
     public:
-        Circle(): radius(0), Point() {}
+        Circle(): radius(1), Point() {}
         Circle(float a, float b, float c): radius(c), Point(a, b) {}
-        void clacArea(){ cout<<"Area of Circle:\t" << 2 * 3.14 * radius * radius << endl; }
-        void clacVolume(){ cout<<"Volume of Point:\t" << ( 4 / 3 )*(3.1417 * radius * radius * radius) << endl; }
+        void clacArea(){
+            area = 2 * 3.14 * radius * radius;
+            cout<<"Area of Circle:\t" << area << endl;
+        }
+        void clacVolume(){
+            volume = ( 4 / 3 )*(3.1417 * radius * radius * radius);
+            cout<<"Volume of Circle:\t" << volume << endl;
+        }
         void display (){ cout<< "Center:\t(" << x <<" , "<< y << ")\nRadius:\t"<<radius<<endl; }
 };
 class Cylinder:public Circle{
     protected:
         float height;
     public:
-        Cylinder():height(0), Circle() {}
+        Cylinder():height(1), Circle() {}
         Cylinder(float a, float b, float c, float d):height(d), Circle(a, b, c) {}
-        void clacArea(){ cout<<"Area of Circle:\t" << 2 * 3.14 * radius * (radius + height) << endl; }
-        void clacVolume(){ cout<<"Volume of Point:\t" << 2 * 3.1417 * radius * radius * height << endl; }
+        void clacArea(){
+            area = 2 * 3.14 * radius * (radius + height);
+            cout<<"Area of Cylinder:\t" << area << endl;
+        }
+        void clacVolume(){
+            volume = 2 * 3.1417 * radius * radius * height;
+            cout<<"Volume of Cylinder:\t" << volume << endl;
+        }
         void display (){ cout<< "Center:\t(" << x <<" , "<< y << ")\nRadius:\t"<<radius<<"\nHeight:\t"<<height<<endl; }
 };
 
@@ -73,8 +91,8 @@ int main(){
 
     cout<<"\nPoint:\n";
     shp = &pnt;
-    shp->calcArea();
-    shp->calcVolume();
+    shp -> calcArea();
+    shp -> calcVolume();
     shp -> display();
 
     cout<<"\nCircle:\n";

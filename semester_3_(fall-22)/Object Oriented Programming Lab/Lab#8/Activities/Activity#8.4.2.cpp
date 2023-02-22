@@ -72,8 +72,6 @@ void RationalNumber::show()const{
         cout<< numerator << endl;
     else if (numerator == denominator)
         cout<< 1 << endl;
-    else if (numerator == denominator)
-        cout<< 1 << endl;
     else if( numerator < 0 && denominator < 0)
         cout<< -numerator << " / " << -denominator << endl;
     else if( numerator < 0 && denominator > 0)

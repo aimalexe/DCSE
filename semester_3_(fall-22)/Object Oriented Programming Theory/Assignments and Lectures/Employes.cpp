@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include<string>
 #include<cstring>
@@ -8,12 +7,12 @@ class Employ{
     private:
         char* name;
         char* department;
-        float salary;
-        float service;
+        double salary;
+        double service;
 
     public:
          Employ():name(" "),department(" "), salary(0.00), service(0.00) {}
-         Employ(char na [], char de [], float sa, float se):name(na), department(de), salary(sa), service(se) {}
+         Employ(char na [], char de [], double sa, double se):name(na), department(de), salary(sa), service(se) {}
          Employ(const Employ &e){
             cout << "\nIn Custom Copy Constructor [Deep]" << endl;
             int nameLength = strlen(e.name);
@@ -33,14 +32,13 @@ class Employ{
              cout<<"Service of years:\t"<<service<<endl<<endl;
          }
          void setEmploy(){
-             int nameLength = strlen(name);
-             name = new char [nameLength + 1];
+            int nameLength = strlen(name);
+            name = new char [nameLength + 1];
             cout<<"Enter Employ's name:\t";
             gets(name);
             int departmentLength = strlen(department);
             department = new char [departmentLength + 1];
             cout<<"Enter Employ's Department:\t";
-            cin>>department;
             gets(department);
             cout<<"Enter Employ's Salary:\t";
             cin>>salary;
@@ -55,8 +53,8 @@ class Employ{
 };
 
 int main(){
-    //Employ e1("Aimal Khan", "DCSE", 49878.34, 21.2);
-    Employ e1;
+    Employ e1("Aimal Khan", "DCSE", 49878.34, 21.2);
+    //Employ e1;
     e1.showEmploy();
     e1.setEmploy();
     e1.showEmploy();

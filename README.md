@@ -18,5 +18,15 @@ This repository contains Assignments and Lab Reports of my BS in Computer System
    * (Spring 2022)
    * In this semeseter our subject is __Computer Programming (CP)__. This subject has two parts
       * [CP Theory](https://github.com/aimalexe/DCSE/tree/main/semester_2_(spring-22)/Computer%20Programming%20Theory/)
-      * [CP Lab](#)
+      * [CP Lab](https://github.com/aimalexe/DCSE/tree/main/semester_2_(spring-22)/Computer%20Programming%20Lab)
    * Here you can [view my work](https://github.com/aimalexe/DCSE/tree/main/semester_2_(spring-22)/)
+   * In this course we have taught __procedural programming__ in cpp. The main content was data types, conditional statements, loops, functions, pointers, structures. 
+
+
+### 3. Third Semester:
+   * (Fall 2022)
+   * In this semeseter our subject is __Object Oriented Programming (OOP)__. This subject has two parts
+      * [OOP Theory](https://github.com/aimalexe/DCSE/tree/main/semester_3_(fall-22)/Object%20Oriented%20Programming%20Theory)
+      * [OOP Lab](https://github.com/aimalexe/DCSE/tree/main/semester_3_(fall-22)/Object%20Oriented%20Programming%20Lab)
+   * Here you can [view my work](https://github.com/aimalexe/DCSE/tree/main/semester_3_(fall-22)/)
+   * In this course we have taught __object oriented programming__ in cpp. The main content was classes, objects, constructors, data members, methods, inheritance, polymorphism, operators overloading.
