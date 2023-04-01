@@ -1,0 +1,32 @@
+cmd: "./fileName.ext 1 2 3"
+This is a file in which we have parameters as: 1, 2, 3.
+$0: This command is used to store file name
+$*:
+$#: 
+
+COnditional Statements:
+syntax of if else:
+if [conditions]
+
+else if "or" elif [condition]
+
+else
+
+fi
+
+syntax of switch:
+switch:
+case var in :
+1)
+2)
+3)
+*)
+esac
+
+Loops: 
+for i in $*
+do
+....
+...
+......
+done
