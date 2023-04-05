@@ -11,30 +11,46 @@ void displayArray(int* arr, int &ofLength){
         cout<<arr[i]<<" ";
     cout<<endl;
 }
+
 void swapBoth(int &x, int &y){
     int temp = x;
     x = y;
     y = temp;
 }
 
-void quickSort(int arr[], int left, int right) {
-    if (left >= right) return;
+int partition(int *arr, int first, int last){
+    int pivotValue = arr[first];
 
-    int pivot = arr[(left + right) / 2];
-    int i = left, j = right;
+    int lower = first + 1;
+    int upper = last;
 
-    while (i <= j) {
-        while (arr[i] < pivot) i++;
-        while (arr[j] > pivot) j--;
-        if (i <= j) {
-            swapBoth(arr[i++], arr[j--]);
-            //i++;
-            //j--;
-        }
+    bool done = false;
+    while(!done){
+        while(lower <= upper && arr[lower] <= pivotValue )
+            lower++;
+
+        while(upper >= lower && arr[upper] >= pivotValue)
+            upper--;
+
+        if(upper < lower)
+            done = true;
+        else
+            swapBoth(arr[lower], arr[upper]);
     }
 
-    quickSort(arr, left, j);
-    quickSort(arr, i, right);
+    swapBoth(arr[first], arr[upper]);
+
+    return upper;
+}
+
+int* quickSort(int arr[], int left, int right) {
+    if (left < right){
+        int pivot = partition(arr, left, right);
+
+        quickSort(arr, left, pivot - 1);
+        quickSort(arr, pivot + 1, right);
+    }
+    return arr;
 }
 
 int main(){
@@ -44,10 +60,10 @@ int main(){
     cout<<"Unsorted Array: "<<endl;
     displayArray(arr, arrSize);
 
-    quickSort(arr, 0, arrSize-1);
+    int *sortedArr = quickSort(arr, 0, arrSize-1);
 
     cout<<"Sorted Array: "<<endl;
-    displayArray(arr, arrSize);
+    displayArray(sortedArr, arrSize);
 
     return 0;
 }
