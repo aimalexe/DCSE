@@ -20,7 +20,7 @@ void displayArray(int* arr, int &ofLength){
 
 int* bubbleSort(int* arr, int &arrSize){
     for (int i = 0; i < arrSize; i++)            // c.n
-        for(int j = 0; j < arrSize-1; j++)      //c.n * c.n
+        for(int j = i; j >= 0; j--)      //c.n * c.n
             if(arr[j] > arr[j + 1])             //c.n * c.n
                 swapBoth(arr[j], arr[j + 1]);   //c.n * c.n
 
