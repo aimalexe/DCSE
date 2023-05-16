@@ -1,5 +1,5 @@
 /*
-Task 2: Implement a single linked list with following operations
+Task 3: Implement a double linked list with following operations
             a) Insert at start of the list (pre-append data)
             b) Insertion at end (append data)
             c) Insertion at nth location
@@ -15,37 +15,40 @@ Task 2: Implement a single linked list with following operations
 #include <iostream>
 using namespace std;
 
-template <typename generic>
+template <typename T>
 struct Node
 {
-    generic data;   // Some Data;
-    Node *nextNode; // Pointer to next node.
+    T data;
+    Node<T> *nextNode;
+    Node<T> *previousNode;
 };
 
 template <typename generic>
-class SinglyLinkedList
+class DoublyLinkedList
 {
 private:
     Node<generic> *head;
     Node<generic> *tail;
 
 public:
-    SinglyLinkedList() : head(nullptr), tail(nullptr) {}
+    DoublyLinkedList() : head(nullptr), tail(nullptr) {}
 
     void addToStart(generic value)
     {
         Node<generic> *newNode = new Node<generic>;
         newNode->data = value;
-        newNode->nextNode = nullptr;
 
         if (head == nullptr)
-        {
+        { // List is EMpty.
+            newNode->nextNode = nullptr;
+            newNode->previousNode = head;
             head = newNode;
             tail = newNode;
         }
         else
         {
             newNode->nextNode = head;
+            head->previousNode = newNode;
             head = newNode;
         }
     }
@@ -62,8 +65,14 @@ public:
 
         if (index == 1)
         {
-            newNode->nextNode = head;
+            if (head != NULL)
+            {
+                newNode->nextNode = head;
+                head->previousNode = newNode;
+            }
             head = newNode;
+            if (tail == NULL)
+                tail = newNode;
             return;
         }
 
@@ -74,12 +83,17 @@ public:
         if (current == nullptr)
         { // n is greater than the size of the list
             cout << "Position " << index << " is out of range." << endl;
-            delete newNode; // Free the memory allocated for the new node
+            delete newNode; // Free the memory allocated for the new Node<generic>
             return;
         }
 
         newNode->nextNode = current->nextNode;
+        newNode->previousNode = current;
+        if (current->nextNode != NULL)
+            current->nextNode->previousNode = newNode;
         current->nextNode = newNode;
+        if (newNode->nextNode == NULL)
+            tail = newNode;
     }
 
     void addToLast(generic value)
@@ -87,6 +101,7 @@ public:
         Node<generic> *newNode = new Node<generic>;
         newNode->data = value;
         newNode->nextNode = nullptr;
+        newNode->previousNode = nullptr;
 
         if (head == nullptr)
         { // Empty list
@@ -95,6 +110,7 @@ public:
         }
         else
         { // Not empty List.
+            newNode->previousNode = tail;
             tail->nextNode = newNode;
             tail = newNode;
         }
@@ -116,7 +132,14 @@ public:
     {
         if (head == nullptr)
             return;
+
         Node<generic> *firstNode = head;
+
+        if (head->nextNode != nullptr) // List is not empty
+            head->nextNode->previousNode = nullptr;
+        else // only one node in the list.
+            tail = nullptr;
+
         head = head->nextNode;
         delete firstNode;
     }
@@ -134,14 +157,11 @@ public:
         }
         else
         {
-            Node<generic> *current = head;
-            while (current->nextNode->nextNode != nullptr)
-                current = current->nextNode;
-            Node<generic> *lastNode = current->nextNode;
+            Node<generic> *lastNode = tail;
+            tail = tail->previousNode;
+            tail->nextNode = nullptr;
 
-            current->nextNode = nullptr;
             delete lastNode;
-            tail = current;
         }
     }
 
@@ -217,16 +237,16 @@ public:
 // Driver Program.
 int main()
 {
-    SinglyLinkedList<int> list;
+    DoublyLinkedList<float> list;
 
-    list.addToStart(1);
-    list.addToStart(2);
+    list.addToStart(1.1);
+    list.addToStart(2.2);
 
-    list.addToLast(10);
-    list.addToLast(11);
-    list.addToLast(12);
+    list.addToLast(10.10);
+    list.addToLast(11.11);
+    list.addToLast(12.12);
 
-    list.addAt(3, 3);
+    list.addAt(3, 3.3);
 
     list.printList();
     cout << "List size is:" << list.sizeOfList() << endl;
@@ -234,20 +254,20 @@ int main()
     list.deleteFirstNode();
     list.deleteFirstNode();
 
-    list.addToStart(0);
-    list.addAt(6, 13);
+    list.addToStart(0.00);
+    list.addAt(6, 13.13);
     list.printList();
 
     list.deleteLastNode();
 
     list.printList();
-    list.searchFor(10);
+    list.searchFor(10.10);
 
-    cout << "10 is updated to 22";
-    list.updateNode(10, 22);
+    cout << "10.10 is updated to 22.22";
+    list.updateNode(10.10, 22.22);
     cout << endl;
-    
-    list.searchFor(76);
+
+    list.searchFor(76.76);
 
     cout << "Is List is empty? " << boolalpha << list.isEmptyList() << endl;
     list.clearList();
