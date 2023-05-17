@@ -1,3 +1,6 @@
+//Task1:
+//Write a C program that executes ls -l command in the child process. Parent process shall wait for the child process.
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>

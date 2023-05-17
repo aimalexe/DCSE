@@ -1,3 +1,7 @@
+//Task2:
+//a.	Write a C program that finds the max of an array.
+//b.	Write a C program that creates a child process and executes the above program in child process. Parent shall wait for the child process.
+
 #include <stdio.h>
 #include <sys/wait.h>
 #include <unistd.h>

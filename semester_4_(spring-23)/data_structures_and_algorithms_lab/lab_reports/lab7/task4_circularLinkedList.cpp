@@ -1,6 +1,6 @@
 /*
 Task 4: Implement a single circular list with following operations
-            a) Insert at start of the list (preappend data)
+            a) Insert at start of the list (pre-append data)
             b) Insertion at end (append data)
             c) Insertion at nth location
             d) Deletion from start of the list
