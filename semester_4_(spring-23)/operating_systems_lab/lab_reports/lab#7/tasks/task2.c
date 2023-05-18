@@ -1,27 +1,40 @@
+//take list of command as CLA's. Execute each as seperate Process.
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 
 int main(int argCount, char * argNames[]){
-	pid_t x;
-	printf("Parent: %d\n", getpid());
+	if(argCount <= 1){
+		printf("No arguments provided!\n");
+		return 1;
+	}
+
+	pid_t childProcess;
+	pid_t parentProcess = getpid();
+
+	printf("Parent Id: %d\n", parentProcess);
+
 	//Creating fan process
 	for(int i = 1; i < argCount; i++){
-		x = fork();
-		printf("Parent: %d --> Child: %d\n",getppid(), getpid() );
-		if( x == 0){
-			execlp("./task2.o", "task2.o", argNames[1], argNames[2], argNames[3], NULL);       
+		childProcess = fork();
+	
+		if(childProcess < 0){
+			printf("Process Creation Faild!!\n");
+			return 1;
+		}
+		else if(childProcess == 0){
+			printf("Parent Id: %d --> Child Id: %d\n",getppid(), getpid() );
+			execlp(argNames[i], argNames[i], NULL);       
 			break;
 		}
 	}
 
 	//waiting for childs.
-	for(int i = 1; i < argCount; i++){
-		if(x > 0){
-			int r = wait(NULL);
-		}
-	}	
-	
+	if(getpid() == parentProcess)
+		for(int i = 1; i < argCount; i++)
+			wait(NULL);
+
 	return 0;
 }
