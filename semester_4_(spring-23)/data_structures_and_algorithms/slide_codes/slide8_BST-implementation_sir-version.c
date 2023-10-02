@@ -25,34 +25,6 @@ typedef NODE_TYPE WINDOW_TYPE;
 
 /*** error handler: print message passed as argument and
 take appropriate action ***/
-int error(char *s);
-
-/*** insert an element in a BST ***/
-BST_TYPE *insert(ELEMENT_TYPE e, BST_TYPE *tree);
-
-/*** return and delete the smallest node in a tree ***/
-/*** i.e. return and delete the left-most node ***/
-ELEMENT_TYPE delete_min(BST_TYPE *tree);
-
-/*** delete an element from a BST ***/
-BST_TYPE *delete(ELEMENT_TYPE e, BST_TYPE *tree);
-
-/*** inorder traversal of a tree, ***/
-/*** printing node elements ***/
-/*** parameter n is the current level in the tree ***/
-int inorder(BST_TYPE *tree, int n);
-
-/*** print all elements in a tree by traversing ***/
-/*** inorder ***/
-int print(BST_TYPE *tree);
-
-/*** assign values to an element ***/
-int assign_element_values(ELEMENT_TYPE *e, int number, char s[]);
-
-int main();
-
-/*** error handler: print message passed as argument and
-take appropriate action ***/
 int error(char *s)
 {
     printf("Error: %s\n", s);
@@ -171,11 +143,11 @@ int inorder(BST_TYPE *tree, int n)
     int i;
     if (*tree != NULL)
     {
-        inorder(&((*tree)->left), n + 1);
+        inorder(&((*tree)->left), n + 2);
         for (i = 0; i < n; i++)
             printf(" ");
         printf("%d %s\n", (*tree)->element.number, (*tree)->element.string);
-        inorder(&((*tree)->right), n + 1);
+        inorder(&((*tree)->right), n + 2);
     }
     return TRUE;
 }

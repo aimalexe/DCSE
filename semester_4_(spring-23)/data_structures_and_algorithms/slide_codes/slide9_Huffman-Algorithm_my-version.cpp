@@ -130,7 +130,7 @@ public:
 
 int main()
 {
-    string text = "I am Aimal Khan";
+    string text = "I am Aimal Khan.";
 
     // Create a frequency table for the characters in the text
     unordered_map<char, int> frequencyTable;

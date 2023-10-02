@@ -24,11 +24,11 @@ private:
     {
         if (node != nullptr)
         {
-            inorderTraversal(node->leftNode, n + 1);
+            inorderTraversal(node->leftNode, n + 2);
             for (int i = 0; i < n; i++)
                 cout << " ";
             cout << node->data << " " << node->str << endl;
-            inorderTraversal(node->rightNode, n + 1);
+            inorderTraversal(node->rightNode, n + 2);
         }
     }
 
