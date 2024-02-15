@@ -1,0 +1,55 @@
+clc;
+clear all
+close all
+
+%% 1.	Set the sampling frequency to 1kHz and carrier frequency to 200 Hz. Generate a time vector having a duration of 0.2 s.
+fs = 1000; % Sampling Frequency
+fc = 200;  % Carrier Frequency
+t = (0:1/fs:0.2);
+
+%% 2.	Create two tone sinusoidal signal with frequencies 30 and 60 Hz
+sig1 = cos(2*pi*30*t);
+sig2 = cos(2*pi*60*t);
+tone = sig1 + sig2;
+
+%% 3.	Generate a Carrier Signal with the freq of 200Hz
+carrier = cos(2*pi*fc*t);
+
+
+%% 4.	Plot the modulating Signal and Carrier Signal figures;
+subplot(2, 1, 1);
+plot(t, tone);
+title('Tone Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+subplot(2, 1, 2);
+plot(t, carrier);
+title('carrier Signal');
+xlabel('Time (s)');
+ylabel('Amplitude');
+
+%% 6. Set the frequency deviation to 50 Hz.
+fDev = 50;
+        
+%% 7. Frequency modulate x (Modulating Signal) using fmmod.
+y = fmmod(tone,fc,fs,fDev);
+
+%% 8. Plot the original and modulated signals.
+plot(t,tone,'r',t,y,'k--')
+xlabel('Time (s)')
+ylabel('Amplitude')
+legend('Original Signal','Modulated Signal')
+
+%% 11. Perform Frequency Demodulation using Matlab function fmdemod
+z = fmdemod(y,fc,fs,fDev);
+
+%% 12. Plot the original and demodulated signals
+plot(t,tone,'g',t,z,'k--');
+xlabel('Time (s)')
+ylabel('Amplitude')
+legend('Original Signal','Demodulated Signal')
+
+
+
+
