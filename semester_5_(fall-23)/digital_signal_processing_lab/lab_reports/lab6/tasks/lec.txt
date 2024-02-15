@@ -1,0 +1,11 @@
+Stationary waves.
+Non-Stationary waves.
+
+If a signal is extended from -infinity to +infinity we can't find its Fourier Transform.
+Power Spectral Density:
+In frequency domain we write watt/hertz... for spectral density.
+PSD cannot be -ve.
+--> Periodogram
+--> Wavelet Transform 
+--> Multitaper
+--> Welch's
