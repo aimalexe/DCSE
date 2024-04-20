@@ -1,0 +1,44 @@
+A51 MACRO ASSEMBLER  TASK1                                                                02/25/2024 23:39:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.exe D:\programing\my_github_account\DCSE\semester_6_(spring-24)\microproces
+                      sor_based_system_design_lab\lab_reports\lab2\tasks\task1.a51 DEBUG SYMBOLS OBJECT(task1.OBJ) 
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000h
+0000 7400              2                     MOV A,#00h
+0002 7A10              3                     MOV R2, #10h
+                       4                     
+0004                   5             AGAIN: 
+0004 2403              6                     ADD A,#03h
+0006 DAFC              7                     DJNZ R2,AGAIN
+                       8                     A
+*** _________________________________________^
+*** ERROR #A9 IN 8 (D:\programing\my_github_account\DCSE\semester_6_(spring-24)\microprocessor_based_system_design_lab\l
+                             ab_reports\lab2\tasks\task1.a51, LINE 8): SYNTAX ERROR
+0008 FD                9                     MOV R5,A
+                      10     ENDA
+*** _________________________^
+*** ERROR #A9 IN 10 (D:\programing\my_github_account\DCSE\semester_6_(spring-24)\microprocessor_based_system_design_lab\
+                             lab_reports\lab2\tasks\task1.a51, LINE 10): SYNTAX ERROR
+*** WARNING #A41 IN 10 (D:\programing\my_github_account\DCSE\semester_6_(spring-24)\microprocessor_based_system_design_l
+                             ab\lab_reports\lab2\tasks\task1.a51, LINE 10): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  TASK1                                                                02/25/2024 23:39:52 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0004H   A   
+ENDA . . . . . . .    ----   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 2 ERROR(S)

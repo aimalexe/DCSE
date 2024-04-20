@@ -1,0 +1,10 @@
+ORG 0000h
+		MOV A,#00h
+		MOV R2, #10h
+		
+	AGAIN: 
+		ADD A,#03h
+		DJNZ R2,AGAIN
+		A
+		MOV R5,A
+ENDA

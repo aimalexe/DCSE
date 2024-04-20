@@ -1,0 +1,90 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              03/27/2024 10:52:21 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <stdio.h>
+   3          
+   4          void delay(void){
+   5   1        int i;
+   6   1        for(i=0; i<30000; i++);
+   7   1        for(i=0; i<30000; i++);
+   8   1        for(i=0; i<30000; i++);
+   9   1      }
+  10          
+  11          void main(void){
+  12   1        P1 = 0x00; 
+  13   1        //LED Segments: 1gfe_dcba
+  14   1        
+  15   1        while(1){
+  16   2          P1 = 0xC0; // 0: 1100 0000
+  17   2          delay();
+  18   2          
+  19   2          P1 = 0xF9; // 1: 1111 1001
+  20   2          delay();
+  21   2          
+  22   2          P1 = 0xA4; // 2: 1010 0100
+  23   2          delay();
+  24   2          
+  25   2          P1 = 0xB0; // 3: 1011 0000
+  26   2          delay();
+  27   2          
+  28   2          P1 = 0x99; // 4: 1001 1001
+  29   2          delay();
+  30   2          
+  31   2          P1 = 0x92; // 5: 1001 0010
+  32   2          delay();
+  33   2          
+  34   2          P1 = 0x82; // 6: 1000 0010
+  35   2          delay();
+  36   2          
+  37   2          P1 = 0xf8; // 7: 1111 1000
+  38   2          delay();
+  39   2          
+  40   2          P1 = 0x80; // 8: 1000 0000
+  41   2          delay();
+  42   2          
+  43   2          P1 = 0x90; // 9: 1001 0000
+  44   2          delay();
+  45   2          
+  46   2          P1 = 0x88; // A: 1000 1000
+  47   2          delay();
+  48   2          
+  49   2          P1 = 0x83; // B: 1000 0011
+  50   2          delay();
+  51   2          
+  52   2          P1 = 0xC6; // C: 1100 0110
+  53   2          delay();
+  54   2          
+C51 COMPILER V9.60.7.0   MAIN                                                              03/27/2024 10:52:21 PAGE 2   
+
+  55   2          P1 = 0xA1; // D: 1010 0001
+  56   2          delay();
+  57   2          
+  58   2          P1 = 0x86; // E: 1000 0110
+  59   2          delay();
+  60   2          
+  61   2          P1 = 0x8E; // F: 1000 1110
+  62   2          delay();    
+  63   2        }
+  64   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    144    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

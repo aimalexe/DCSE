@@ -1,0 +1,13 @@
+body {
+    margin-top: 5%;
+}
+
+h1 {
+    font-family: 'Garamond', serif;
+    font-size: 26pt;
+    color: red;
+}
+
+ul {
+    list-style-type: square;
+}

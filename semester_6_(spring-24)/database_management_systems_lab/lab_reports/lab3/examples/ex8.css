@@ -1,0 +1,27 @@
+/* 
+Example 8: Usage of External Style Sheet 
+    In this example, style attributes are written in external style sheet and then linked in the HTML 
+    using <link> tag as specified earlier. The result is same as shown in Figure 3.7. 
+*/
+
+p {
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.question {
+    color: brown;
+    font-style: italic;
+}
+
+.answer {
+    color: #23238e
+}
+
+.big {
+    font-size: 14pt;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: red;
+}

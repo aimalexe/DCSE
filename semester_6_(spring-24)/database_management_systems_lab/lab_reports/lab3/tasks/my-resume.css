@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 20px 10%;
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+}
+
+header h1 {
+    margin: 0;
+    color: #000;
+}
+
+header p {
+    margin: 5px 0;
+    color: #666;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    color: teal;
+    text-decoration: underline;
+}
+
+section {
+    margin: 10px;
+}
+
+section h2 {
+    color: #f3f3f3;
+    background-color: #333;
+    border-bottom: 2px solid #000;
+    padding: 5px 10px;
+}
+
+ul {
+    list-style-type: circle;
+    padding-left: 30px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+.summary p,
+.experience div,
+.education div {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 15px;
+    border-left: 2px solid #333;
+
+}
+
+.work-experience h4,
+.education h3 {
+    margin-top: 15px;
+}
+
+#show-as-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 10px
+}
+
+.skills,
+.languages,
+.certifications {
+    grid-column: 1;
+}
+
+.skills {
+    grid-row: 1;
+}
+
+.languages {
+    grid-row: 2;
+}
+
+.certifications {
+    grid-row: 3;
+}
+
+.work-experience,
+.education {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}

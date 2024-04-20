@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  TOGGLE                                                               02/25/2024 22:49:30 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\toggle.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE toggle.a51 SET(SMALL) DEBUG PRINT(.\Listings\toggle.lst) OBJECT(.\Objec
+                      ts\toggle.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000h      ; Set the origin address
+                       2     
+0000                   3     MAIN:           ; Main program label
+0000 74FF              4             MOV A , #0FFh; Load A with inital 1's
+0002 F590              5         MOV P1, A   ; Set all pins of Port 1 as output and initially high
+0004 F5A0              6         MOV P2, A   ; Set all pins of Port 2 as output and initially high
+                       7     
+0006 7400              8             MOV A , #000h; Load A with 0's
+0008 F590              9         MOV P1, A   ; Set all pins of Port 1 as output and initially high
+000A F5A0             10         MOV P2, A   ; Set all pins of Port 2 as output and initially high
+000C 1110             11         ACALL DELAY     ; Call delay subroutine
+000E 80F0             12         SJMP MAIN       ; Jump back to loop
+                      13     
+0010                  14     DELAY:
+                      15         ; Insert delay subroutine here (based on your clock frequency)
+0010 22               16         RET
+                      17     END
+A51 MACRO ASSEMBLER  TOGGLE                                                               02/25/2024 22:49:30 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0010H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

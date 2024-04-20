@@ -1,0 +1,115 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    03/27/2024  11:38:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\main PRINT (.\Listings\main.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\main (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     001FH     UNIT         ?PR?TIMER0?MAIN
+            CODE    08ABH     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    08B3H     0007H     UNIT         ?PR?STARTTIMER?MAIN
+            CODE    08BAH     0005H     UNIT         ?C_INITSEG
+            CODE    08BFH     0003H     UNIT         ?PR?STARTTIMER0?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\main (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?STARTTIMER0?MAIN
+  +--> ?PR?STARTTIMER?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\main (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  03/27/2024  11:38:40  PAGE 2
+
+
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:08ABH         PUBLIC        main
+  D:0008H         PUBLIC        count
+  D:0089H         PUBLIC        TMOD
+  C:08B3H         PUBLIC        startTimer
+  B:00B0H.0       PUBLIC        pin
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:088CH         PUBLIC        timer0
+  B:0088H.4       PUBLIC        TR0
+  C:08BFH         PUBLIC        startTimer0
+  -------         PROC          STARTTIMER0
+  C:08BFH         LINE#         6
+  C:08BFH         LINE#         7
+  C:08C1H         LINE#         8
+  -------         ENDPROC       STARTTIMER0
+  -------         PROC          TIMER0
+  C:088CH         LINE#         10
+  C:088EH         LINE#         13
+  C:0896H         LINE#         14
+  C:089CH         LINE#         15
+  C:089EH         LINE#         16
+  C:08A2H         LINE#         17
+  C:08A2H         LINE#         20
+  C:08A5H         LINE#         21
+  C:08A8H         LINE#         22
+  -------         ENDPROC       TIMER0
+  -------         PROC          STARTTIMER
+  C:08B3H         LINE#         24
+  C:08B3H         LINE#         25
+  C:08B6H         LINE#         26
+  C:08B9H         LINE#         27
+  -------         ENDPROC       STARTTIMER
+  -------         PROC          MAIN
+  C:08ABH         LINE#         30
+  C:08ABH         LINE#         31
+  C:08AEH         LINE#         32
+  C:08B1H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0038H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=200
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

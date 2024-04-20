@@ -1,0 +1,59 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              03/18/2024 10:22:12 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit pin = P3 ^ 0;
+   4          int count = 0;
+   5          
+   6          void startTimer0(){ // Function to start timer 0.
+   7   1        TR0 = 1;
+   8   1      }
+   9          
+  10          void timer0() interrupt 1{ // using intterrupt 1 of timer 0.
+  11   1        // 300 msec delay = 60k * 5 times
+  12   1      
+  13   1        count++;
+  14   1        if(count == 5){
+  15   2          pin = ~pin;
+  16   2          count = 0;
+  17   2        }
+  18   1        
+  19   1        //delay = 65535 - 60000 = 5535 or ffff - ea60 = 159f
+  20   1        TH0 = 0x15; // high byte of timer 0
+  21   1        TL0 = 0x9f; // lower byte of timer 0
+  22   1      }
+  23          
+  24          void startTimer(){ // 
+  25   1        TMOD = 0x01; // using as a counter or timer
+  26   1        IE = 0x82; // Enabling global interrupt(EA) and timer 0. 
+  27   1      }
+  28          
+  29          
+  30          void main(){
+  31   1        startTimer0();
+  32   1        startTimer();
+  33   1      
+  34   1        while(1);   
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     49    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\toggle.obj",
+".\Objects\toggle.obj" 
+TO ".\Objects\lab-1" 
+PRINT(".\Listings\lab-1.m51") RAMSIZE(64) 
