@@ -1,0 +1,33 @@
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 "TopMultiplex.ngc" TopMultiplex.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TopMultiplex_map.ncd TopMultiplex.ngd TopMultiplex.pcf 
+par -w -intstyle ise -ol high -mt off TopMultiplex_map.ncd TopMultiplex.ncd TopMultiplex.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TopMultiplex.twx TopMultiplex.ncd -o TopMultiplex.twr TopMultiplex.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc TopMultiplex.ucf -p xc6slx9-csg324-2 "TopMultiplex.ngc" TopMultiplex.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TopMultiplex_map.ncd TopMultiplex.ngd TopMultiplex.pcf 
+par -w -intstyle ise -ol high -mt off TopMultiplex_map.ncd TopMultiplex.ncd TopMultiplex.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TopMultiplex.twx TopMultiplex.ncd -o TopMultiplex.twr TopMultiplex.pcf -ucf TopMultiplex.ucf 
+bitgen -intstyle ise -f TopMultiplex.ut TopMultiplex.ncd 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc TopMultiplex.ucf -p xc6slx9-csg324-2 "TopMultiplex.ngc" TopMultiplex.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TopMultiplex_map.ncd TopMultiplex.ngd TopMultiplex.pcf 
+par -w -intstyle ise -ol high -mt off TopMultiplex_map.ncd TopMultiplex.ncd TopMultiplex.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TopMultiplex.twx TopMultiplex.ncd -o TopMultiplex.twr TopMultiplex.pcf -ucf TopMultiplex.ucf 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc TopMultiplex.ucf -p xc6slx9-csg324-2 "TopMultiplex.ngc" TopMultiplex.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TopMultiplex_map.ncd TopMultiplex.ngd TopMultiplex.pcf 
+par -w -intstyle ise -ol high -mt off TopMultiplex_map.ncd TopMultiplex.ncd TopMultiplex.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TopMultiplex.twx TopMultiplex.ncd -o TopMultiplex.twr TopMultiplex.pcf -ucf TopMultiplex.ucf 
+bitgen -intstyle ise -f TopMultiplex.ut TopMultiplex.ncd 
+bitgen -intstyle ise -f TopMultiplex.ut TopMultiplex.ncd 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/TopMultiplex.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc TopMultiplex.ucf -p xc6slx9-csg324-2 "TopMultiplex.ngc" TopMultiplex.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TopMultiplex_map.ncd TopMultiplex.ngd TopMultiplex.pcf 
+par -w -intstyle ise -ol high -mt off TopMultiplex_map.ncd TopMultiplex.ncd TopMultiplex.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TopMultiplex.twx TopMultiplex.ncd -o TopMultiplex.twr TopMultiplex.pcf -ucf TopMultiplex.ucf 
+bitgen -intstyle ise -f TopMultiplex.ut TopMultiplex.ncd 

@@ -1,0 +1,48 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              04/22/2024 09:23:30 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit pushButton = P3 ^ 4;
+   4          
+   5          
+   6          void initTimer(){
+   7   1        TMOD = 0x06; // use timer as a counter
+   8   1        TH0 = 0; // use to count upto 0xff.
+   9   1        TL0 = 0;
+  10   1        pushButton = 1;
+  11   1      }
+  12          void startTimer(){
+  13   1        TR0 = 1; // use timer 0
+  14   1      }
+  15          
+  16          
+  17          int main(){
+  18   1        startTimer();
+  19   1        initTimer();
+  20   1        
+  21   1        while(1){
+  22   2          P2 = TL0; // send the lower bit to display the count  
+  23   2        }
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

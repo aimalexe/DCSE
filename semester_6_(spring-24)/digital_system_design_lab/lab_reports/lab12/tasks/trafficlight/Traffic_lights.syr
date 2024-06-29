@@ -1,0 +1,575 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: Traffic_lights.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Traffic_lights.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Traffic_lights"
+Output Format                      : NGC
+Target Device                      : xc6slx9-2-csg324
+
+---- Source Options
+Top Module Name                    : Traffic_lights
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\eductaion\DCSE\6th Semester\DSD Lab\lab12\trafficlight\traffic_light.v" into library work
+Parsing module <Traffic_lights>.
+Parsing module <clk_divider>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <Traffic_lights>.
+
+Elaborating module <clk_divider>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <Traffic_lights>.
+    Related source file is "D:\eductaion\DCSE\6th Semester\DSD Lab\lab12\trafficlight\traffic_light.v".
+        FR_HG = 2'b00
+        FY_HR = 2'b01
+        FG_HR = 2'b10
+        FR_HY = 2'b11
+        red = 3'b100
+        yellow = 3'b010
+        green = 3'b001
+    Found 2-bit register for signal <PS>.
+    Found finite state machine <FSM_0> for signal <PS>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 2                                              |
+    | Clock              | out_clk (rising_edge)                          |
+    | Reset              | GND_1_o_GND_1_o_equal_2_o (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <Traffic_lights> synthesized.
+
+Synthesizing Unit <clk_divider>.
+    Related source file is "D:\eductaion\DCSE\6th Semester\DSD Lab\lab12\trafficlight\traffic_light.v".
+    Found 101-bit register for signal <count>.
+    Found 1-bit register for signal <out_clk>.
+    Found 101-bit adder for signal <count[100]_GND_2_o_add_2_OUT> created at line 79.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred 102 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <clk_divider> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 101-bit adder                                         : 1
+# Registers                                            : 2
+ 1-bit register                                        : 1
+ 101-bit register                                      : 1
+# Multiplexers                                         : 1
+ 101-bit 2-to-1 multiplexer                            : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 101-bit adder                                         : 1
+# Registers                                            : 102
+ Flip-Flops                                            : 102
+# Multiplexers                                         : 1
+ 101-bit 2-to-1 multiplexer                            : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <FSM_0> on signal <PS[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+
+Optimizing unit <Traffic_lights> ...
+
+Optimizing unit <clk_divider> ...
+WARNING:Xst:1710 - FF/Latch <d1/count_47> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_48> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_49> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_50> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_51> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_52> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_53> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_54> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_55> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_56> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_57> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_58> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_59> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_60> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_61> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_62> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_63> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_64> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_29> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_30> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_31> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_32> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_33> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_34> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_35> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_36> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_37> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_38> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_39> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_40> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_41> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_42> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_43> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_44> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_45> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_46> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_83> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_84> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_85> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_86> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_87> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_88> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_89> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_90> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_91> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_92> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_93> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_94> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_95> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_96> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_97> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_98> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_99> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_100> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_65> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_66> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_67> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_68> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_69> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_70> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_71> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_72> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_73> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_74> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_75> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_76> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_77> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_78> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_79> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_80> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_81> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <d1/count_82> (without init value) has a constant value of 0 in block <Traffic_lights>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block Traffic_lights, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 32
+ Flip-Flops                                            : 32
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : Traffic_lights.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 120
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 28
+#      LUT2                        : 2
+#      LUT3                        : 5
+#      LUT4                        : 1
+#      LUT5                        : 2
+#      LUT6                        : 19
+#      MUXCY                       : 29
+#      VCC                         : 1
+#      XORCY                       : 30
+# FlipFlops/Latches                : 32
+#      FD                          : 2
+#      FDR                         : 30
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 8
+#      IBUF                        : 2
+#      OBUF                        : 6
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9csg324-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              32  out of  11440     0%  
+ Number of Slice LUTs:                   59  out of   5720     1%  
+    Number used as Logic:                59  out of   5720     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     59
+   Number with an unused Flip Flop:      27  out of     59    45%  
+   Number with an unused LUT:             0  out of     59     0%  
+   Number of fully used LUT-FF pairs:    32  out of     59    54%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                           9
+ Number of bonded IOBs:                   9  out of    200     4%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 30    |
+d1/out_clk                         | NONE(PS_FSM_FFd1)      | 2     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 5.230ns (Maximum Frequency: 191.195MHz)
+   Minimum input arrival time before clock: 4.293ns
+   Maximum output required time after clock: 5.525ns
+   Maximum combinational path delay: 6.225ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.230ns (frequency: 191.195MHz)
+  Total number of paths / destination ports: 5462 / 30
+-------------------------------------------------------------------------
+Delay:               5.230ns (Levels of Logic = 10)
+  Source:            d1/count_0 (FF)
+  Destination:       d1/count_24 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: d1/count_0 to d1/count_24
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.525   0.681  d1/count_0 (d1/count_0)
+     INV:I->O              1   0.255   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_lut<0>_INV_0 (d1/Madd_count[100]_GND_2_o_add_2_OUT_lut<0>)
+     MUXCY:S->O            1   0.215   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<0> (d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<1> (d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<2> (d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<3> (d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<4> (d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<4>)
+     MUXCY:CI->O           1   0.023   0.000  d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<5> (d1/Madd_count[100]_GND_2_o_add_2_OUT_cy<5>)
+     XORCY:CI->O           2   0.206   1.181  d1/Madd_count[100]_GND_2_o_add_2_OUT_xor<6> (d1/count[100]_GND_2_o_add_2_OUT<6>)
+     LUT6:I0->O           11   0.254   1.469  d1/count[100]_GND_2_o_equal_4_o<100>6 (d1/count[100]_GND_2_o_equal_4_o<100>5)
+     LUT6:I1->O            1   0.254   0.000  d1/Mmux_count[100]_GND_2_o_mux_4_OUT181 (d1/count[100]_GND_2_o_mux_4_OUT<24>)
+     FDR:D                     0.074          d1/count_24
+    ----------------------------------------
+    Total                      5.230ns (1.899ns logic, 3.331ns route)
+                                       (36.3% logic, 63.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'd1/out_clk'
+  Clock period: 2.073ns (frequency: 482.393MHz)
+  Total number of paths / destination ports: 4 / 2
+-------------------------------------------------------------------------
+Delay:               2.073ns (Levels of Logic = 1)
+  Source:            PS_FSM_FFd2 (FF)
+  Destination:       PS_FSM_FFd2 (FF)
+  Source Clock:      d1/out_clk rising
+  Destination Clock: d1/out_clk rising
+
+  Data Path: PS_FSM_FFd2 to PS_FSM_FFd2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               8   0.525   1.220  PS_FSM_FFd2 (PS_FSM_FFd2)
+     LUT4:I0->O            1   0.254   0.000  PS_FSM_FFd2_rstpot (PS_FSM_FFd2_rstpot)
+     FD:D                      0.074          PS_FSM_FFd2
+    ----------------------------------------
+    Total                      2.073ns (0.853ns logic, 1.220ns route)
+                                       (41.1% logic, 58.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 30 / 30
+-------------------------------------------------------------------------
+Offset:              4.293ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       d1/count_28 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to d1/count_28
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.328   0.765  rst_IBUF (rst_IBUF)
+     INV:I->O             30   0.255   1.486  GND_1_o_GND_1_o_equal_2_o1_INV_0 (d1/rst_inv)
+     FDR:R                     0.459          d1/count_0
+    ----------------------------------------
+    Total                      4.293ns (2.042ns logic, 2.251ns route)
+                                       (47.6% logic, 52.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'd1/out_clk'
+  Total number of paths / destination ports: 3 / 2
+-------------------------------------------------------------------------
+Offset:              2.631ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       PS_FSM_FFd1 (FF)
+  Destination Clock: d1/out_clk rising
+
+  Data Path: rst to PS_FSM_FFd1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.328   0.994  rst_IBUF (rst_IBUF)
+     LUT4:I1->O            1   0.235   0.000  PS_FSM_FFd2_rstpot (PS_FSM_FFd2_rstpot)
+     FD:D                      0.074          PS_FSM_FFd2
+    ----------------------------------------
+    Total                      2.631ns (1.637ns logic, 0.994ns route)
+                                       (62.2% logic, 37.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'd1/out_clk'
+  Total number of paths / destination ports: 12 / 6
+-------------------------------------------------------------------------
+Offset:              5.525ns (Levels of Logic = 2)
+  Source:            PS_FSM_FFd1 (FF)
+  Destination:       out_farm<2> (PAD)
+  Source Clock:      d1/out_clk rising
+
+  Data Path: PS_FSM_FFd1 to out_farm<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               8   0.525   1.172  PS_FSM_FFd1 (PS_FSM_FFd1)
+     LUT3:I0->O            1   0.235   0.681  out_highway<0>1 (out_highway_0_OBUF)
+     OBUF:I->O                 2.912          out_highway_0_OBUF (out_highway<0>)
+    ----------------------------------------
+    Total                      5.525ns (3.672ns logic, 1.853ns route)
+                                       (66.5% logic, 33.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Delay:               6.225ns (Levels of Logic = 3)
+  Source:            v (PAD)
+  Destination:       out_farm<1> (PAD)
+
+  Data Path: v to out_farm<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   1.328   1.069  v_IBUF (v_IBUF)
+     LUT3:I0->O            1   0.235   0.681  out_farm<1>1 (out_farm_1_OBUF)
+     OBUF:I->O                 2.912          out_farm_1_OBUF (out_farm<1>)
+    ----------------------------------------
+    Total                      6.225ns (4.475ns logic, 1.750ns route)
+                                       (71.9% logic, 28.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    5.230|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock d1/out_clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+d1/out_clk     |    2.073|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.99 secs
+ 
+--> 
+
+Total memory usage is 4500308 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   72 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

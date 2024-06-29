@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Wed Apr 24 14:07:42 2024
+# Process ID: 17272
+# Log file: D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/planAhead_run_1/planAhead.log
+# Journal file: D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {D:/eductaion/DCSE/6th Semester/DSD Lab/lab8/task1/bcd_counter/pa.fromNetlist.tcl}

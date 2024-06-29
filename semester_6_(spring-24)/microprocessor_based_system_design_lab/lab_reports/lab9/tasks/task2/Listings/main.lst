@@ -1,0 +1,97 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/12/2024 12:45:27 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>  // Include for 8051 register definitions
+   2          #include <stdio.h>
+   3          
+   4          // Define keypad column pins
+   5          sbit Column0 = P2^6;
+   6          sbit Column1 = P2^5;
+   7          sbit Column2 = P2^4;
+   8          
+   9          // Define keypad row pins
+  10          sbit Row0 = P2^0;
+  11          sbit Row1 = P2^1;
+  12          sbit Row2 = P2^2;
+  13          sbit Row3 = P2^3;
+  14          
+  15          void displaySegment(int segmentData);
+  16          int calculateLEDs(int row, int col);
+  17          
+  18          void main(void){
+  19   1          int row, col, number;
+  20   1          while(1){
+  21   2              for(row = 0; row < 4; row++){  // Scan each row
+  22   3                  P2 = ~(1 << row);  // Activate current row
+  23   3                  for(col = 0; col < 3; col++){  // Check each column in the activated row
+  24   4                      if (!(P2 & (0x40 >> col))){  // Check if a button is pressed (P2^6 is Column0, P2^5 is Col
+             -umn1, P2^4 is Column2)
+  25   5                          // Map the row and column to the correct number (1-9 and 0)
+  26   5                          if(row == 3) {// special row 
+  27   6                              switch(col) {
+  28   7                                  case 0:  // '*'
+  29   7                                      number = 10;  // Use the last index for '-'
+  30   7                                      P1 = 0x80;  // Turn on LED7
+  31   7                                      break;
+  32   7                                  case 1:  // '0'
+  33   7                                      number = 0;
+  34   7                                      P1 = calculateLEDs(row, col);
+  35   7                                      break;
+  36   7                                  case 2:  // '#'
+  37   7                                      number = 10; 
+  38   7                                      P1 = 0x80;
+  39   7                                      break;
+  40   7                                  default:
+  41   7                                      continue;
+  42   7                              } 
+  43   6                          } 
+  44   5                          else {
+  45   6                              number = row * 3 + col + 1;
+  46   6                              if(number >= 10) continue;  // Skip if the computed number is not valid (e.g., in 
+             -a 4x3 matrix beyond '9')
+  47   6                              P1 = calculateLEDs(row, col);
+  48   6                          }
+  49   5                          displaySegment(number); 
+  50   5                          while(!(P2 & (0x40 >> col)));  // Wait for the button to be released
+  51   5                      }
+  52   4                  }
+C51 COMPILER V9.60.7.0   MAIN                                                              05/12/2024 12:45:27 PAGE 2   
+
+  53   3              }
+  54   2              P1 = 0;  // Turn off all LEDs after button release
+  55   2          }
+  56   1      }
+  57          
+  58          void displaySegment(int number){
+  59   1        // Segment codes for numbers 0 to 9 and dash '-' on a seven-segment display
+  60   1        const char segmentCodes[11] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0xBF};  // 0xB
+             -F for '-'
+  61   1      
+  62   1          P3 = segmentCodes[number];  // Send the segment code to P3 (seven segment display)
+  63   1      }
+  64          
+  65          int calculateLEDs(int row, int col){
+  66   1        //PIN 0, 1, 2, 3 shows the row and PIN 4, 5 and 6 shows column pressed. 
+  67   1        return (1 << row) | (1 << (col + 4));  // Set bits for both row and column
+  68   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    316    ----
+   CONSTANT SIZE    =     11    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      19
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

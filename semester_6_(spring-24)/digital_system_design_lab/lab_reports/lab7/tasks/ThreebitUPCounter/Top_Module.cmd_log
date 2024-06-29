@@ -1,0 +1,9 @@
+xst -intstyle ise -ifn "H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit UP counter/ThreebitUPCounter/Top_Module.xst" -ofn "H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit UP counter/ThreebitUPCounter/Top_Module.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 "Top_Module.ngc" Top_Module.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Top_Module_map.ncd Top_Module.ngd Top_Module.pcf 
+par -w -intstyle ise -ol high -mt off Top_Module_map.ncd Top_Module.ncd Top_Module.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Top_Module.twx Top_Module.ncd -o Top_Module.twr Top_Module.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Top_Module.ucf -p xc6slx9-csg324-2 "Top_Module.ngc" Top_Module.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Top_Module_map.ncd Top_Module.ngd Top_Module.pcf 
+par -w -intstyle ise -ol high -mt off Top_Module_map.ncd Top_Module.ncd Top_Module.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Top_Module.twx Top_Module.ncd -o Top_Module.twr Top_Module.pcf -ucf Top_Module.ucf 

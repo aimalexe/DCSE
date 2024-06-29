@@ -1,0 +1,84 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/12/2024 11:24:41 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>  // Include for 8051 register definitions
+   2          
+   3          // Define keypad column pins
+   4          sbit Column0 = P2^6;
+   5          sbit Column1 = P2^5;
+   6          sbit Column2 = P2^4;
+   7          
+   8          // Define keypad row pins
+   9          sbit Row0 = P2^0;
+  10          sbit Row1 = P2^1;
+  11          sbit Row2 = P2^2;
+  12          sbit Row3 = P2^3;
+  13          
+  14          // Define LED control pins
+  15          sbit LED0 = P1^0;
+  16          sbit LED1 = P1^1;
+  17          sbit LED2 = P1^2;
+  18          sbit LED3 = P1^3;
+  19          sbit LED4 = P1^4;
+  20          sbit LED5 = P1^5;
+  21          sbit LED6 = P1^6;
+  22          sbit LED7 = P1^7;
+  23          
+  24          void displaySegment(int segmentData);
+  25          
+  26          void main(void)
+  27          {
+  28   1          P1 = 0;  // Reset all P1 pins to 0
+  29   1          Row1 = Row2 = 1;  // Set Row1 and Row2 to high
+  30   1          Row0 = 0;  // Set Row0 to low
+  31   1      
+  32   1          // Check if Column0 is pressed
+  33   1          if (Column0 == 0)
+  34   1          {
+  35   2              LED0 = 1;  // Turn on LED0
+  36   2              displaySegment(0xF9);  // Display segment data for "F9"
+  37   2          }
+  38   1      
+  39   1          // Check if Column1 is pressed
+  40   1          if (Column1 == 0)
+  41   1          {
+  42   2              LED1 = 1;  // Turn on LED1
+  43   2              displaySegment(0xA4);  // Display segment data for "A4"
+  44   2          }
+  45   1      
+  46   1          // Check if Column2 is pressed
+  47   1          if (Column2 == 0)
+  48   1          {
+  49   2              LED2 = 1;  // Turn on LED2
+  50   2              displaySegment(0xB0);  // Display segment data for "B0"
+  51   2          }
+  52   1      }
+  53          
+  54          void displaySegment(int segmentData)
+C51 COMPILER V9.60.7.0   MAIN                                                              05/12/2024 11:24:41 PAGE 2   
+
+  55          {
+  56   1          P3 = 0x00;  // Clear P3
+  57   1          P3 = segmentData;  // Set P3 to the segment data
+  58   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     51    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,58 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              04/28/2024 13:38:43 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit PWM_Pin = P1 ^ 3; // PWM output on Pin P1.3
+   4          
+   5          void Timer0_ISR() interrupt 1 {
+   6   1          static unsigned char pwm_state = 0;
+   7   1      
+   8   1          TR0 = 0; // Stop Timer 0
+   9   1          if (pwm_state == 0) {
+  10   2              // Currently in low state, switch to high
+  11   2              PWM_Pin = 1; // Set pin high
+  12   2              TH0 = 0xFC;
+  13   2              TL0 = 0x18; 
+  14   2              pwm_state = 1;
+  15   2          } else {
+  16   2              // Currently in high state, switch to low
+  17   2              PWM_Pin = 0; // Set pin low
+  18   2              TH0 = 0xFC; 
+  19   2              TL0 = 0xC5; 
+  20   2              pwm_state = 0; // Update state to low
+  21   2          }
+  22   1          TR0 = 1; // Start Timer 0
+  23   1      }
+  24          
+  25          void main() {
+  26   1          TMOD = 0x01; 
+  27   1          TH0 = 0xFC; // Initial load for timer high byte (for first high period)
+  28   1          TL0 = 0x18; // Initial load for timer low byte (for first high period)
+  29   1          ET0 = 1; 
+  30   1          EA = 1; 
+  31   1          TR0 = 1;
+  32   1      
+  33   1          while (1) ;
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     54    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

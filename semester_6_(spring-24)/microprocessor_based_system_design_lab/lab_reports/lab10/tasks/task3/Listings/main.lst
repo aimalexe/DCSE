@@ -1,0 +1,238 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 16:53:12 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>   // Include header file for 8051
+   2          
+   3          // Define LCD control pins
+   4          sbit lcdRegisterSelect = P3^7;       // Register select pin for LCD
+   5          sbit lcdEnable = P3^6;               // Enable pin for LCD
+   6          
+   7          // Define keypad row and column pins
+   8          sbit row1 = P1^0;
+   9          sbit row2 = P1^1;
+  10          sbit row3 = P1^2;
+  11          sbit row4 = P1^3;
+  12          sbit column1 = P1^4;
+  13          sbit column2 = P1^5;
+  14          sbit column3 = P1^6;
+  15          sbit column4 = P1^7;
+  16          
+  17          // Function prototypes
+  18          void delayMilliseconds(unsigned int ms);
+  19          void sendLcdCommand(unsigned char command);
+  20          void sendLcdData(unsigned char _data);
+  21          void initializeLcdDisplay(void);
+  22          char scanKeypad(void);
+  23          void calculatorOperation(void);
+  24          void displayString(char *string);
+  25          void displayFullExpression(char firstNumber, char _operator, char secondNumber, int result);
+  26          
+  27          // Main function
+  28          int main() {
+  29   1          initializeLcdDisplay();  // Initialize the LCD display
+  30   1          while (1) {
+  31   2              calculatorOperation();  // Perform calculator operations
+  32   2          }
+  33   1          return 0;
+  34   1      }
+  35          
+  36          // Implement a simple delay function
+  37          void delayMilliseconds(unsigned int ms) {
+  38   1          unsigned int i, j;
+  39   1          for (i = 0; i < ms; i++)
+  40   1              for (j = 0; j < 127; j++);
+  41   1      }
+  42          
+  43          // Send a command to the LCD
+  44          void sendLcdCommand(unsigned char command) {
+  45   1          lcdRegisterSelect = 0;  // Command mode
+  46   1          P2 = command;           // Place command on the bus
+  47   1          lcdEnable = 1;          // Pulse enable
+  48   1          delayMilliseconds(1);
+  49   1          lcdEnable = 0;
+  50   1          delayMilliseconds(5);
+  51   1      }
+  52          
+  53          // Send data to the LCD
+  54          void sendLcdData(unsigned char _data) {
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 16:53:12 PAGE 2   
+
+  55   1          lcdRegisterSelect = 1;  // Data mode
+  56   1          P2 = _data;              // Place data on the bus
+  57   1          lcdEnable = 1;          // Pulse enable
+  58   1          delayMilliseconds(1);
+  59   1          lcdEnable = 0;
+  60   1          delayMilliseconds(5);
+  61   1      }
+  62          
+  63          // Initialize the LCD
+  64          void initializeLcdDisplay(void) {
+  65   1          delayMilliseconds(15);
+  66   1          sendLcdCommand(0x38);  // Function set: 2 Lines, 8-bit mode
+  67   1          sendLcdCommand(0x0C);  // Display ON, cursor OFF
+  68   1          sendLcdCommand(0x01);  // Clear display
+  69   1          sendLcdCommand(0x06);  // Entry mode set
+  70   1      }
+  71          
+  72          // Perform calculator operations
+  73          void calculatorOperation(void) {
+  74   1          char key, firstNumber = 0, secondNumber = 0; 
+  75   1          int result;
+  76   1          char _operator = 0;
+  77   1      
+  78   1          sendLcdCommand(0x01);  // Clear display
+  79   1          displayString("Enter 1st no."); // Display Enter first number
+  80   1          
+  81   1          // Wait for first number
+  82   1          while(1) {
+  83   2              key = scanKeypad();
+  84   2              if (key >= '0' && key <= '9') {
+  85   3                  firstNumber = key - '0';
+  86   3                  sendLcdCommand(0xC0);  // next line
+  87   3                  sendLcdData(key);  // Show first number
+  88   3                  delayMilliseconds(1000);
+  89   3                  break;
+  90   3              }
+  91   2          }
+  92   1          sendLcdCommand(0x01);  // Clear display
+  93   1          displayString("Enter operator."); // Display Enter operaator
+  94   1          
+  95   1          // Wait for operator
+  96   1          while(1) {
+  97   2              key = scanKeypad();
+  98   2              if (key == '+' || key == '-' || key == '*' || key == '/') {
+  99   3                  _operator = key;
+ 100   3                  sendLcdCommand(0xC0);  // next line
+ 101   3                  sendLcdData(key);  // Show operator
+ 102   3                  delayMilliseconds(1000);
+ 103   3                  break;
+ 104   3              }
+ 105   2          }
+ 106   1          
+ 107   1          sendLcdCommand(0x01);  // Clear display
+ 108   1          displayString("Enter 2nd no."); // Display Enter operaator
+ 109   1          
+ 110   1          // Wait for second number
+ 111   1          while(1) {
+ 112   2              key = scanKeypad();
+ 113   2              if (key >= '0' && key <= '9') {
+ 114   3                  secondNumber = key - '0';
+ 115   3                  sendLcdCommand(0xC0);  // next line
+ 116   3                  sendLcdData(key);  // Show second number
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 16:53:12 PAGE 3   
+
+ 117   3                  delayMilliseconds(1000);
+ 118   3                  break;
+ 119   3              }
+ 120   2          }
+ 121   1      
+ 122   1          // Calculate result
+ 123   1          switch (_operator) {
+ 124   2              case '+':
+ 125   2                  result = firstNumber + secondNumber;
+ 126   2                  break;
+ 127   2              case '-':
+ 128   2                  result = firstNumber - secondNumber;
+ 129   2                  break;
+ 130   2              case '*':
+ 131   2                  result = firstNumber * secondNumber;
+ 132   2                  break;
+ 133   2              case '/':
+ 134   2                  if (secondNumber != 0)
+ 135   2                      result = firstNumber / secondNumber;
+ 136   2                  else
+ 137   2                      result = 0;  // Handle division by zero
+ 138   2                  break;
+ 139   2          }
+ 140   1      
+ 141   1          // Display result
+ 142   1          displayFullExpression(firstNumber, _operator, secondNumber, result);
+ 143   1      }
+ 144          
+ 145          // Read the key pressed on the keypad
+ 146          char scanKeypad(void) {
+ 147   1          unsigned char keyMap[4][4] = {{'7', '8', '9', '/'}, {'4', '5', '6', '*'}, {'1', '2', '3', '-'}, {'e', 
+             -'=', '0', '+'}};
+ 148   1          unsigned char row, col;
+ 149   1      
+ 150   1          for (row = 0; row < 4; row++) {
+ 151   2              P1 = ~(1 << row);  // Ground one row at a time
+ 152   2      
+ 153   2              for (col = 0; col < 4; col++) {
+ 154   3                  if (!(P1 & (1 << (col + 4)))) {  // Check if column is low
+ 155   4                      delayMilliseconds(20);       // Debounce delay
+ 156   4                      while (!(P1 & (1 << (col + 4))));  // Wait for key release
+ 157   4                      return keyMap[row][col];    // Return the corresponding key
+ 158   4                  }
+ 159   3              }
+ 160   2          }
+ 161   1      
+ 162   1          return ' '; 
+ 163   1      }
+ 164          
+ 165          // Function to display strings on the LCD
+ 166          void displayString(char *string) {
+ 167   1          while (*string) {
+ 168   2              sendLcdData(*string++);
+ 169   2          }
+ 170   1      }
+ 171          
+ 172          void displayFullExpression(char firstNumber, char _operator, char secondNumber, int result) {
+ 173   1            char key;
+ 174   1        
+ 175   1          sendLcdCommand(0x01);  // Clear the LCD display
+ 176   1          
+ 177   1          sendLcdCommand(0x80);  // Position cursor at the beginning of the first line
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 16:53:12 PAGE 4   
+
+ 178   1          displayString("The Result is: "); 
+ 179   1          
+ 180   1          sendLcdCommand(0xC0);  // Position cursor at the beginning of the second line
+ 181   1      
+ 182   1          // Display the first number
+ 183   1          sendLcdData(firstNumber + '0');  // Convert number to ASCII
+ 184   1      
+ 185   1          // Display the operator
+ 186   1          sendLcdData(' ');  // Add space for clarity
+ 187   1          sendLcdData(_operator);
+ 188   1          sendLcdData(' ');  // Add space for clarity
+ 189   1      
+ 190   1          // Display the second number
+ 191   1          sendLcdData(secondNumber + '0');  // Convert number to ASCII
+ 192   1      
+ 193   1          // Display equals sign
+ 194   1          sendLcdData(' ');
+ 195   1          sendLcdData('=');
+ 196   1          sendLcdData(' ');
+ 197   1      
+ 198   1          // Display result
+ 199   1          sendLcdData(result + '0');
+ 200   1          
+ 201   1          while(1){
+ 202   2            key = scanKeypad();
+ 203   2            if(key == 'e')
+ 204   2              break;
+ 205   2          }
+ 206   1      }
+*** WARNING C294 IN LINE 33 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    631    ----
+   CONSTANT SIZE    =     76    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      31
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

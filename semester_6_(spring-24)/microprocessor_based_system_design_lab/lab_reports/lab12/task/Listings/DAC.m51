@@ -1,0 +1,214 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/02/2024  00:04:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\DAC PRINT (.\Listings\DAC.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\DAC (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0024H     UNIT         _DATA_GROUP_
+            DATA    002CH     0002H     UNIT         ?DT?MAIN
+            IDATA   002EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     014BH     UNIT         ?C?LIB_CODE
+            CODE    094BH     008CH     UNIT         ?C_C51STARTUP
+            CODE    09D7H     0074H     UNIT         ?PR?EXTERNAL0_ISR?MAIN
+            CODE    0A4BH     0033H     UNIT         ?PR?SINE_WAVE?MAIN
+            CODE    0A7EH     0027H     UNIT         ?PR?_DELAY?MAIN
+            CODE    0AA5H     0024H     UNIT         ?CO?MAIN
+            CODE    0AC9H     0023H     UNIT         ?PR?TRIANGLE_WAVE?MAIN
+            CODE    0AECH     001DH     UNIT         ?PR?SQUARE_WAVE?MAIN
+            CODE    0B09H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    0B11H     0007H     UNIT         ?PR?SETUP_INTERRUPTS?MAIN
+            CODE    0B18H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\DAC (MAIN)
+
+
+SEGMENT                             DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH
+-------------------------------------------------
+?PR?EXTERNAL0_ISR?MAIN            -----    -----
+  +--> ?PR?SINE_WAVE?MAIN
+  +--> ?PR?TRIANGLE_WAVE?MAIN
+  +--> ?PR?SQUARE_WAVE?MAIN
+
+?PR?SINE_WAVE?MAIN                0008H    0024H
+  +--> ?CO?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/02/2024  00:04:55  PAGE 2
+
+
+  +--> ?PR?_DELAY?MAIN
+
+?PR?TRIANGLE_WAVE?MAIN            -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+?PR?SQUARE_WAVE?MAIN              -----    -----
+  +--> ?PR?_DELAY?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP                     -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                     -----    -----
+  +--> ?PR?SETUP_INTERRUPTS?MAIN
+  +--> ?PR?SQUARE_WAVE?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DAC (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:00A8H.7       PUBLIC        EA
+  C:0A85H         PUBLIC        _delay
+  C:0B09H         PUBLIC        main
+  C:0AECH         PUBLIC        square_wave
+  C:0AA5H         SYMBOL        _?ix1000
+  C:0A4BH         PUBLIC        sine_wave
+  C:09D7H         PUBLIC        external0_isr
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  C:0AC9H         PUBLIC        triangle_wave
+  C:0B11H         PUBLIC        setup_interrupts
+  -------         PROC          L?0037
+  -------         ENDPROC       L?0037
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        millisecond
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0A85H         LINE#         6
+  C:0A85H         LINE#         8
+  C:0A8FH         LINE#         9
+  C:0AA4H         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         PROC          SINE_WAVE
+  -------         DO            
+  D:0008H         SYMBOL        sine
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/02/2024  00:04:55  PAGE 3
+
+
+  C:0A4BH         LINE#         12
+  C:0A4BH         LINE#         13
+  C:0A5EH         LINE#         15
+  C:0A61H         LINE#         16
+  C:0A6DH         LINE#         17
+  C:0A74H         LINE#         18
+  C:0A7DH         LINE#         19
+  -------         ENDPROC       SINE_WAVE
+  -------         PROC          TRIANGLE_WAVE
+  -------         DO            
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0AC9H         LINE#         21
+  C:0AC9H         LINE#         25
+  C:0ACCH         LINE#         26
+  C:0ACCH         LINE#         27
+  C:0ACFH         LINE#         28
+  C:0AD7H         LINE#         31
+  C:0ADAH         LINE#         32
+  C:0ADAH         LINE#         33
+  C:0ADDH         LINE#         34
+  C:0AEBH         LINE#         35
+  -------         ENDPROC       TRIANGLE_WAVE
+  -------         PROC          SQUARE_WAVE
+  -------         DO            
+  D:0082H         SYMBOL        k
+  -------         ENDDO         
+  C:0AECH         LINE#         37
+  C:0AECH         LINE#         39
+  C:0AEFH         LINE#         40
+  C:0AF2H         LINE#         41
+  C:0AF9H         LINE#         42
+  C:0AFCH         LINE#         43
+  C:0AFFH         LINE#         44
+  C:0B08H         LINE#         45
+  -------         ENDPROC       SQUARE_WAVE
+  -------         PROC          SETUP_INTERRUPTS
+  C:0B11H         LINE#         47
+  C:0B11H         LINE#         48
+  C:0B13H         LINE#         49
+  C:0B15H         LINE#         50
+  C:0B17H         LINE#         51
+  -------         ENDPROC       SETUP_INTERRUPTS
+  -------         PROC          EXTERNAL0_ISR
+  -------         DO            
+  D:002CH         SYMBOL        wave_selector
+  -------         ENDDO         
+  C:09D7H         LINE#         53
+  C:09F4H         LINE#         55
+  C:0A0DH         LINE#         56
+  C:0A0DH         LINE#         57
+  C:0A10H         LINE#         58
+  C:0A18H         LINE#         59
+  C:0A1AH         LINE#         60
+  C:0A1AH         LINE#         61
+  C:0A1DH         LINE#         62
+  C:0A25H         LINE#         63
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/02/2024  00:04:55  PAGE 4
+
+
+  C:0A27H         LINE#         64
+  C:0A27H         LINE#         65
+  C:0A2AH         LINE#         66
+  C:0A30H         LINE#         67
+  C:0A30H         LINE#         68
+  C:0A30H         LINE#         69
+  -------         ENDPROC       EXTERNAL0_ISR
+  -------         PROC          MAIN
+  C:0B09H         LINE#         71
+  C:0B09H         LINE#         72
+  C:0B0CH         LINE#         73
+  C:0B0CH         LINE#         74
+  C:0B0FH         LINE#         75
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?COPY
+  C:08D0H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?UIDIV
+  C:08F6H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0148H BYTE (16%) *
+******************************************************************************
+
+Program Size: data=47.0 xdata=0 code=803
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

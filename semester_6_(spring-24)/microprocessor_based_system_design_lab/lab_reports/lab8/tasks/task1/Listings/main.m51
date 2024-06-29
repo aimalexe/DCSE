@@ -1,0 +1,99 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    04/22/2024  09:23:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\main PRINT (.\Listings\main.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\main (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     000CH     UNIT         ?C_C51STARTUP
+            CODE    080CH     000BH     UNIT         ?PR?INITTIMER?MAIN
+            CODE    0817H     000BH     UNIT         ?PR?MAIN?MAIN
+            CODE    0822H     0003H     UNIT         ?PR?STARTTIMER?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\main (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?STARTTIMER?MAIN
+  +--> ?PR?INITTIMER?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\main (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0817H         PUBLIC        main
+  D:0089H         PUBLIC        TMOD
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  04/22/2024  09:23:30  PAGE 2
+
+
+  C:0822H         PUBLIC        startTimer
+  C:080CH         PUBLIC        initTimer
+  B:00B0H.4       PUBLIC        pushButton
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          INITTIMER
+  C:080CH         LINE#         6
+  C:080CH         LINE#         7
+  C:080FH         LINE#         8
+  C:0812H         LINE#         9
+  C:0814H         LINE#         10
+  C:0816H         LINE#         11
+  -------         ENDPROC       INITTIMER
+  -------         PROC          STARTTIMER
+  C:0822H         LINE#         12
+  C:0822H         LINE#         13
+  C:0824H         LINE#         14
+  -------         ENDPROC       STARTTIMER
+  -------         PROC          MAIN
+  C:0817H         LINE#         17
+  C:0817H         LINE#         18
+  C:081AH         LINE#         19
+  C:081DH         LINE#         21
+  C:081DH         LINE#         22
+  C:0820H         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0019H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=40
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

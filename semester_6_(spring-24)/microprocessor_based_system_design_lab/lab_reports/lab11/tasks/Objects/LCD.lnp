@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\LCD" 
+PRINT(".\Listings\LCD.m51")

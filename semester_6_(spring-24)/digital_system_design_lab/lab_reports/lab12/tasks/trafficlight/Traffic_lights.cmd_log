@@ -1,0 +1,38 @@
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf -ucf Traffic_lights.ucf 
+bitgen -intstyle ise -f Traffic_lights.ut Traffic_lights.ncd 
+bitgen -intstyle ise -f Traffic_lights.ut Traffic_lights.ncd 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf -ucf Traffic_lights.ucf 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf -ucf Traffic_lights.ucf 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf -ucf Traffic_lights.ucf 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf -ucf Traffic_lights.ucf 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/Traffic_lights.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p xc6slx9-csg324-2 "Traffic_lights.ngc" Traffic_lights.ngd  
+map -intstyle ise -p xc6slx9-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o Traffic_lights_map.ncd Traffic_lights.ngd Traffic_lights.pcf 
+par -w -intstyle ise -ol high -mt off Traffic_lights_map.ncd Traffic_lights.ncd Traffic_lights.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml Traffic_lights.twx Traffic_lights.ncd -o Traffic_lights.twr Traffic_lights.pcf -ucf Traffic_lights.ucf 
+bitgen -intstyle ise -f Traffic_lights.ut Traffic_lights.ncd 

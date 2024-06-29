@@ -1,0 +1,151 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 13:44:50 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>   // Include header file for 8051
+   2          
+   3          // Define control pins for LCD and ADC
+   4          sbit lcdRegisterSelect = P3^7;  // Register select pin for LCD
+   5          sbit lcdEnable = P3^6;          // Enable pin for LCD
+   6          sbit adcReadControl = P3^4;     // ADC read control
+   7          sbit adcWriteControl = P3^5;    // ADC write control
+   8          sbit adcInterrupt = P3^2;       // ADC interrupt pin
+   9          
+  10          // Function prototypes
+  11          void delay(unsigned int milliseconds);
+  12          void sendLcdCommand(unsigned char command);
+  13          void sendLcdData(unsigned char lcdData);
+  14          void initializeLcd(void);
+  15          void displayRegistrationNumber(void);
+  16          unsigned char readAdcValue(void);
+  17          void displayTemperature(unsigned char adcValue);
+  18          
+  19          // Main function
+  20          int main() {
+  21   1          initializeLcd();
+  22   1          while (1) {
+  23   2              displayTemperature(readAdcValue());
+  24   2              delay(5);     // Refresh the temperature display every 50 milliseconds
+  25   2          }
+  26   1          return 0;
+  27   1      }
+  28          
+  29          // Implement delay function
+  30          void delay(unsigned int milliseconds) {
+  31   1          unsigned int i, j;
+  32   1          for (i = 0; i < milliseconds; i++)
+  33   1              for (j = 0; j < 127; j++); // Fine-tune this based on your clock frequency
+  34   1      }
+  35          
+  36          // Implement command writing to LCD
+  37          void sendLcdCommand(unsigned char command) {
+  38   1          lcdRegisterSelect = 0;
+  39   1          P2 = command;
+  40   1          lcdEnable = 1;
+  41   1          delay(1);
+  42   1          lcdEnable = 0;
+  43   1          delay(1);
+  44   1      }
+  45          
+  46          // Implement data writing to LCD
+  47          void sendLcdData(unsigned char lcdData) {
+  48   1          lcdRegisterSelect = 1;
+  49   1          P2 = lcdData;
+  50   1          lcdEnable = 1;
+  51   1          delay(1);
+  52   1          lcdEnable = 0;
+  53   1          delay(1);
+  54   1      }
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 13:44:50 PAGE 2   
+
+  55          
+  56          // Initialize LCD
+  57          void initializeLcd(void) {
+  58   1          delay(15);                  // Wait for LCD to power up
+  59   1          sendLcdCommand(0x38);       // Function set: 2 Lines, 8-bit mode
+  60   1          sendLcdCommand(0x0E);       // Display ON, Cursor ON
+  61   1          sendLcdCommand(0x01);       // Clear display
+  62   1          sendLcdCommand(0x06);       // Entry mode set
+  63   1      }
+  64          
+  65          // Display the registration number
+  66          void displayRegistrationNumber(void) {
+  67   1          sendLcdCommand(0x80);  // Cursor to first row
+  68   1          sendLcdData('2');  // Display registration number "21PWCSE1996"
+  69   1          sendLcdData('1');
+  70   1          sendLcdData('P');
+  71   1          sendLcdData('W');
+  72   1          sendLcdData('C');
+  73   1          sendLcdData('S');
+  74   1          sendLcdData('E');
+  75   1          sendLcdData('1');
+  76   1          sendLcdData('9');
+  77   1          sendLcdData('9');
+  78   1          sendLcdData('6');
+  79   1      }
+  80          
+  81          
+  82          // Read ADC value
+  83          unsigned char readAdcValue(void) {
+  84   1          unsigned char adcValue;
+  85   1          adcWriteControl = 0;
+  86   1          delay(5);
+  87   1          adcWriteControl = 1;
+  88   1          while (adcInterrupt == 1);  // Wait for ADC conversion to complete
+  89   1          adcReadControl = 0;
+  90   1          adcValue = P1;              // Read ADC result
+  91   1          delay(10);
+  92   1          return adcValue;
+  93   1      }
+  94          
+  95          // Display temperature with detailed formatting
+  96          void displayTemperature(unsigned char adcValue) {
+  97   1          unsigned char unitDigit = 0;
+  98   1          unsigned char tenthDigit = 0;
+  99   1          unsigned char hundDigit = 0;
+ 100   1          unsigned char decimalDigit = 0;
+ 101   1          int point = adcValue * 10;
+ 102   1          
+ 103   1          decimalDigit = point % 10;
+ 104   1          hundDigit = (point / 100) % 10;
+ 105   1          tenthDigit = (point / 10) % 10;
+ 106   1          
+ 107   1          sendLcdCommand(0x01);  // Clear the display before displaying new temperature
+ 108   1          displayRegistrationNumber();
+ 109   1          sendLcdCommand(0xC0);  // Move cursor to the second line
+ 110   1      
+ 111   1          if (hundDigit != 0) {
+ 112   2              sendLcdData(hundDigit + '0');
+ 113   2          }
+ 114   1          if (tenthDigit != 0 || hundDigit != 0) {  // Only display if non-zero or not leading zero
+ 115   2              sendLcdData(tenthDigit + '0');
+ 116   2          }
+C51 COMPILER V9.60.7.0   MAIN                                                              05/25/2024 13:44:50 PAGE 3   
+
+ 117   1          sendLcdData(unitDigit + '0');
+ 118   1          sendLcdData('.');
+ 119   1          sendLcdData(decimalDigit + '0');
+ 120   1          sendLcdData(' ');
+ 121   1          sendLcdData('C');  // Display unit
+ 122   1      }
+*** WARNING C294 IN LINE 26 OF main.c: unreachable code
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    325    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,111 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    05/12/2024  11:24:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\main PRINT (.\Listings\main.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\main (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     002DH     UNIT         ?PR?MAIN?MAIN
+            CODE    082DH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0839H     0006H     UNIT         ?PR?_DISPLAYSEGMENT?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\main (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_DISPLAYSEGMENT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\main (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:0090H.0       PUBLIC        LED0
+  B:0090H.1       PUBLIC        LED1
+  B:0090H.2       PUBLIC        LED2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/12/2024  11:24:48  PAGE 2
+
+
+  B:00A0H.6       PUBLIC        Column0
+  B:00A0H.5       PUBLIC        Column1
+  B:00A0H.4       PUBLIC        Column2
+  C:0800H         PUBLIC        main
+  C:0839H         PUBLIC        _displaySegment
+  B:00A0H.0       PUBLIC        Row0
+  B:00A0H.1       PUBLIC        Row1
+  B:00A0H.2       PUBLIC        Row2
+  -------         PROC          MAIN
+  C:0800H         LINE#         26
+  C:0800H         LINE#         27
+  C:0800H         LINE#         28
+  C:0803H         LINE#         29
+  C:0807H         LINE#         30
+  C:0809H         LINE#         33
+  C:080CH         LINE#         34
+  C:080CH         LINE#         35
+  C:080EH         LINE#         36
+  C:0814H         LINE#         37
+  C:0814H         LINE#         40
+  C:0817H         LINE#         41
+  C:0817H         LINE#         42
+  C:0819H         LINE#         43
+  C:0820H         LINE#         44
+  C:0820H         LINE#         47
+  C:0823H         LINE#         48
+  C:0823H         LINE#         49
+  C:0825H         LINE#         50
+  C:082CH         LINE#         51
+  C:082CH         LINE#         52
+  -------         ENDPROC       MAIN
+  -------         PROC          _DISPLAYSEGMENT
+  D:0006H         SYMBOL        segmentData
+  C:0839H         LINE#         54
+  C:0839H         LINE#         55
+  C:0839H         LINE#         56
+  C:083CH         LINE#         57
+  C:083EH         LINE#         58
+  -------         ENDPROC       _DISPLAYSEGMENT
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0033H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=66
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

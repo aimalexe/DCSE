@@ -1,0 +1,165 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    05/25/2024  15:22:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\main PRINT (.\Listings\main.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\main (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         _DATA_GROUP_
+            IDATA   000BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0028H     UNIT         ?PR?_DELAYMILLISECONDS?MAIN
+            CODE    0828H     0025H     UNIT         ?PR?_DISPLAYSTRING?MAIN
+            CODE    084DH     0021H     UNIT         ?PR?MAIN?MAIN
+            CODE    086EH     001BH     UNIT         ?PR?INITIALIZELCD?MAIN
+            CODE    0889H     0019H     UNIT         ?C?LIB_CODE
+            CODE    08A2H     0017H     UNIT         ?CO?MAIN
+            CODE    08B9H     000CH     UNIT         ?PR?_SENDLCDCOMMAND?MAIN
+            CODE    08C5H     000CH     UNIT         ?PR?_SENDLCDDATA?MAIN
+            CODE    08D1H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\main (MAIN)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                       -----    -----
+  +--> ?PR?INITIALIZELCD?MAIN
+  +--> ?PR?_SENDLCDCOMMAND?MAIN
+  +--> ?CO?MAIN
+  +--> ?PR?_DISPLAYSTRING?MAIN
+
+?PR?INITIALIZELCD?MAIN              -----    -----
+  +--> ?PR?_SENDLCDCOMMAND?MAIN
+  +--> ?PR?_DELAYMILLISECONDS?MAIN
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/25/2024  15:22:37  PAGE 2
+
+
+?PR?_SENDLCDCOMMAND?MAIN            -----    -----
+  +--> ?PR?_DELAYMILLISECONDS?MAIN
+
+?PR?_DISPLAYSTRING?MAIN             0008H    0003H
+  +--> ?PR?_SENDLCDDATA?MAIN
+
+?PR?_SENDLCDDATA?MAIN               -----    -----
+  +--> ?PR?_DELAYMILLISECONDS?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\main (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0808H         PUBLIC        _delayMilliseconds
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:08B9H         PUBLIC        _sendLcdCommand
+  C:084DH         PUBLIC        main
+  C:08C5H         PUBLIC        _sendLcdData
+  C:086EH         PUBLIC        initializeLcd
+  B:00B0H.7       PUBLIC        registerSelect
+  B:00B0H.6       PUBLIC        enable
+  C:0828H         PUBLIC        _displayString
+  -------         PROC          MAIN
+  C:084DH         LINE#         15
+  C:084DH         LINE#         16
+  C:0850H         LINE#         18
+  C:0855H         LINE#         19
+  C:085EH         LINE#         21
+  C:0863H         LINE#         22
+  C:086CH         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         PROC          L?0020
+  -------         ENDPROC       L?0020
+  -------         PROC          _DELAYMILLISECONDS
+  D:0006H         SYMBOL        milliseconds
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0808H         LINE#         29
+  C:0808H         LINE#         31
+  C:0812H         LINE#         32
+  C:0827H         LINE#         33
+  -------         ENDPROC       _DELAYMILLISECONDS
+  -------         PROC          _SENDLCDCOMMAND
+  D:0007H         SYMBOL        command
+  C:08B9H         LINE#         36
+  C:08B9H         LINE#         37
+  C:08BBH         LINE#         38
+  C:08BBH         LINE#         39
+  C:08BBH         LINE#         40
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/25/2024  15:22:37  PAGE 3
+
+
+  C:08BEH         LINE#         41
+  C:08C0H         LINE#         42
+  -------         ENDPROC       _SENDLCDCOMMAND
+  -------         PROC          _SENDLCDDATA
+  D:0007H         SYMBOL        _data
+  C:08C5H         LINE#         46
+  C:08C5H         LINE#         47
+  C:08C7H         LINE#         48
+  C:08C7H         LINE#         49
+  C:08C7H         LINE#         50
+  C:08CAH         LINE#         51
+  C:08CCH         LINE#         52
+  -------         ENDPROC       _SENDLCDDATA
+  -------         PROC          INITIALIZELCD
+  C:086EH         LINE#         56
+  C:086EH         LINE#         57
+  C:0873H         LINE#         58
+  C:0878H         LINE#         59
+  C:087DH         LINE#         60
+  C:0882H         LINE#         61
+  -------         ENDPROC       INITIALIZELCD
+  -------         PROC          _DISPLAYSTRING
+  D:0008H         SYMBOL        string
+  C:0828H         LINE#         65
+  C:082EH         LINE#         66
+  C:0839H         LINE#         67
+  C:084AH         LINE#         68
+  C:084CH         LINE#         69
+  -------         ENDPROC       _DISPLAYSTRING
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        ?C?CLDPTR
+  C:0889H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00B8H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=12.0 xdata=0 code=224
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

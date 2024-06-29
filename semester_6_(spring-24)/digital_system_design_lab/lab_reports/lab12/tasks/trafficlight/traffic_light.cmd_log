@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/traffic_light.xst" -ofn "D:/eductaion/DCSE/6th Semester/DSD Lab/lab12/trafficlight/traffic_light.syr" 

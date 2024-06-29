@@ -1,0 +1,42 @@
+Release 14.7 ngdbuild P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line:
+D:\programs\Xilinx_ISE_Design_Suite_v14.7\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngd
+build.exe -intstyle ise -dd _ngo -nt timestamp -uc Traffic_lights.ucf -p
+xc6slx9-csg324-2 Traffic_lights.ngc Traffic_lights.ngd
+
+Reading NGO file "D:/eductaion/DCSE/6th Semester/DSD
+Lab/lab12/trafficlight/Traffic_lights.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "Traffic_lights.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem - The Period constraint <period = 100MHz;>
+   [Traffic_lights.ucf(3)], is specified using the Net Period method which is
+   not recommended. Please use the Timespec PERIOD method.
+
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 4390568 kilobytes
+
+Writing NGD file "Traffic_lights.ngd" ...
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+Writing NGDBUILD log file "Traffic_lights.bld"...

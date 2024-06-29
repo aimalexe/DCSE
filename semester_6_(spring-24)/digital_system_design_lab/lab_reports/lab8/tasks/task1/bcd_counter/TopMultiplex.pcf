@@ -1,0 +1,22 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Fri May 03 12:21:03 2024
+//! **************************************************************************
+
+SCHEMATIC START;
+CONFIG VCCAUX = "3.3";
+COMP "out_dec<1>" LOCATE = SITE "A2" LEVEL 1;
+COMP "rst" LOCATE = SITE "F17" LEVEL 1;
+COMP "out_dec<2>" LOCATE = SITE "B3" LEVEL 1;
+COMP "out_mux<0>" LOCATE = SITE "A5" LEVEL 1;
+COMP "out_mux<1>" LOCATE = SITE "A3" LEVEL 1;
+COMP "out_mux<2>" LOCATE = SITE "B4" LEVEL 1;
+COMP "out_mux<3>" LOCATE = SITE "A4" LEVEL 1;
+COMP "out_mux<4>" LOCATE = SITE "C4" LEVEL 1;
+COMP "out_mux<5>" LOCATE = SITE "C5" LEVEL 1;
+COMP "out_mux<6>" LOCATE = SITE "D6" LEVEL 1;
+COMP "out_mux<7>" LOCATE = SITE "C6" LEVEL 1;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "out_dec<0>" LOCATE = SITE "B2" LEVEL 1;
+NET "clk_BUFGP/IBUFG" PERIOD = 10 ns HIGH 50%;
+SCHEMATIC END;
+

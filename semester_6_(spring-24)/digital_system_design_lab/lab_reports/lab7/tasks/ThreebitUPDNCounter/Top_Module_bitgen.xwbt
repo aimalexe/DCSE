@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=H:\6th semester Data\By Hammad\DSD-Lab\Lab 07\Three bit UP-DN counter\ThreebitUPDNCounter\Top_Module.ncd
+OUTFILE=H:\6th semester Data\By Hammad\DSD-Lab\Lab 07\Three bit UP-DN counter\ThreebitUPDNCounter\Top_Module.bit
+FAMILY=Spartan6
+PART=xc6slx9-2csg324
+WORKINGDIR=H:\6th semester Data\By Hammad\DSD-Lab\Lab 07\Three bit UP-DN counter\ThreebitUPDNCounter
+LICENSE=WebPack
+USER_INFO=__0_0_0

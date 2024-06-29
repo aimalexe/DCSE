@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=D:\eductaion\DCSE\6th Semester\DSD Lab\lab8\task1\bcd_counter\TopMultiplex.ncd
+OUTFILE=D:\eductaion\DCSE\6th Semester\DSD Lab\lab8\task1\bcd_counter\TopMultiplex.bit
+FAMILY=Spartan6
+PART=xc6slx9-2csg324
+WORKINGDIR=D:\eductaion\DCSE\6th Semester\DSD Lab\lab8\task1\bcd_counter
+LICENSE=WebPack
+USER_INFO=__0_0_0

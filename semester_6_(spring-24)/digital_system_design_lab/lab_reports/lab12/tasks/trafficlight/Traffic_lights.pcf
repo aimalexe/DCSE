@@ -1,0 +1,17 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Fri May 24 12:11:06 2024
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "v" LOCATE = SITE "F17" LEVEL 1;
+COMP "out_highway<0>" LOCATE = SITE "N16" LEVEL 1;
+COMP "out_highway<1>" LOCATE = SITE "U17" LEVEL 1;
+COMP "out_highway<2>" LOCATE = SITE "U18" LEVEL 1;
+COMP "out_farm<0>" LOCATE = SITE "P15" LEVEL 1;
+COMP "out_farm<1>" LOCATE = SITE "P16" LEVEL 1;
+COMP "rst" LOCATE = SITE "K18" LEVEL 1;
+COMP "out_farm<2>" LOCATE = SITE "N15" LEVEL 1;
+NET "clk_BUFGP/IBUFG" PERIOD = 10 ns HIGH 50%;
+SCHEMATIC END;
+

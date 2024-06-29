@@ -1,0 +1,10 @@
+net "rst" LOC =K18 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;
+net "v" LOC =F17 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST | PULLUP;
+net "clk" LOC =V10 | IOSTANDARD = LVCMOS33 | period = 100MHz;
+
+net "out_highway[0]" LOC = N16 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST;
+net "out_highway[1]" LOC = U17 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST;
+net "out_highway[2]" LOC = U18 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST;
+net "out_farm[0]" LOC = P15 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST;
+net "out_farm[1]" LOC = P16 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST;
+net "out_farm[2]" LOC = N15 | IOSTANDARD = LVCMOS33 | DRIVE = 8 | SLEW = FAST;

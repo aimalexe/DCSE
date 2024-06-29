@@ -1,0 +1,67 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Fri Apr 26 19:44:34 2024
+# Process ID: 3412
+# Log file: H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/planAhead_run_1/planAhead.log
+# Journal file: H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source {H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/pa.fromNetlist.tcl}
+# create_project -name ThreebitDNCounter -dir "H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/planAhead_run_1" -part xc6slx9csg324-2
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/Top_Module.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter} }
+# set_param project.pinAheadLayout  yes
+# set_property target_constrs_file "Top_Module.ucf" [current_fileset -constrset]
+Adding file 'H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/Top_Module.ucf' to fileset 'constrs_1'
+# add_files [list {Top_Module.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx9csg324-2
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design Top_Module.ngc ...
+WARNING:NetListWriters:298 - No output is written to Top_Module.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file Top_Module.edif ...
+ngc2edif: Total memory usage is 4310992 kilobytes
+
+Parsing EDIF File [./planAhead_run_1/ThreebitDNCounter.data/cache/Top_Module_ngc_zx.edif]
+Finished Parsing EDIF File [./planAhead_run_1/ThreebitDNCounter.data/cache/Top_Module_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx9/csg324/Package.xml
+Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/Top_Module.ucf]
+Finished Parsing UCF File [H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter/Top_Module.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+
+Phase 0 | Netlist Checksum: 129d9f16
+link_design: Time (s): elapsed = 00:00:06 . Memory (MB): peak = 650.113 ; gain = 180.590
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+ (See H:/6th semester Data/By Hammad/DSD-Lab/Lab 07/Three bit DN Counter/ThreebitDNCounter\planAhead_pid3412.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Fri Apr 26 19:45:43 2024...
+INFO: [Common 17-83] Releasing license: PlanAhead
