@@ -12,12 +12,31 @@
 # production
 /build
 *.exe
+*.o
+
+# Ignore documents and PDFs
 *.pdf
 *.doc*
-*.o
-*.pptx
+*.ppt*
+*.rtf
 
-# ignore compilation output of ModelSim
+# Ignore cache and system files
+*.cache
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/
+
+# Ignore compiled output
+*.out
+*.class
+*.jar
+*.war
+*.ear
+*.dll
+*.so
+
+# Ignore compilation output of ModelSim
 *.mti
 *.dat
 *.dbs
@@ -29,8 +48,7 @@
 *.bsf
 *.mpf
 
-
-# ignore simulation output of ModelSim
+# Ignore simulation output of ModelSim
 wlf*
 *.wlf
 *.vstf
@@ -40,4 +58,3 @@ work/
 transcript*
 sc_dpiheader.h
 vsim.dbg
-

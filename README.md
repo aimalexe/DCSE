@@ -12,6 +12,9 @@ Welcome to my personal repository dedicated to the Department of Computer System
     - [3. Third Semester (Fall 2022)](#3-third-semester-fall-2022)
     - [4. Fourth Semester (Spring 2023)](#4-fourth-semester-spring-2023)
     - [5. Fifth Semester (Fall 2023)](#5-fifth-semester-fall-2023)
+    - [6. Sixth Semester (Spring 2024)](#6-sixth-semester-spring-2024)
+    - [7. Seventh Semester (Fall 2024)](#7-seventh-semester-fall-2024)
+    - [8. Eighth Semester (Spring 2025)](#8-eighth-semester-spring-2025)
 
 ### 1. First Semester (Fall 2021)
    - In this semester, our primary subject was **Computer Fundamentals (CF)**.
@@ -45,6 +48,35 @@ Welcome to my personal repository dedicated to the Department of Computer System
    - Feel free to explore my work for the fourth semester [here](./semester_4_(spring-23)/).
   
 ### 5. Fifth Semester (Fall 2023)
-   - In progress...
+   - In the fifth semester, we covered courses including **Communication Systems, Engineering Economics**, and various technical labs.
+   - The semester included practical applications in **system programming**, **digital signal processing**, and **computer organization and architecture**.
+   - Explore my work for the fifth semester in the following sections:
+     - [Computer Organization and Architecture Lab](./semester_5_(fall-23)/computer_organization_and_architechure_lab/)
+     - [Digital Signal Processing Lab](./semester_5_(fall-23)/digital_signal_processing_lab/lab_reports)
+     - [Systems Programming Lab](./semester_5_(fall-23)/systems_programming_lab)
+   - Find my work for the fifth semester [here](./semester_5_(fall-23)/).
 
-This repository will continually evolve as I progress through my studies in Computer System Engineering at UET, Peshawar. Stay tuned for updates, and if you're a fellow student, don't hesitate to collaborate and share your insights to enhance our collective learning experience.
+### 6. Sixth Semester (Spring 2024)
+   - This semester focused on **Technical Writing**, **Database Management Systems (DBMS)**, **Digital System Design (DSD)**, and **Microprocessor-Based System Design (MBSD)**.
+   - The courses were structured into theoretical and lab components:
+     - [Database Management Systems Lab](./semester_6_(spring-24)/database_management_systems_lab/lab_reports)
+     - [Digital System Design Lab](./semester_6_(spring-24)/digital_system_design_lab/lab_reports)
+     - [Microprocessor-Based System Design Lab](./semester_6_(spring-24)/microprocessor_based_system_design_lab/lab_reports)
+   - Explore my work for the sixth semester [here](./semester_6_(spring-24)/).
+
+### 7. Seventh Semester (Fall 2024)
+   - In this semester, we covered **Professional Ethics**, **Embedded Systems**, **Control Systems**, and **Data Analytics**.
+   - The coursework was focused on theoretical understanding along with hands-on experience in labs:
+     - [Control Systems Lab](./semester_7_(fall-24)/control_systems_lab)
+     - [Data Analytics Lab](./semester_7_(fall-24)/data_analytics_lab/lab_reports)
+   - Browse my work for the seventh semester [here](./semester_7_(fall-24)/).
+
+### 8. Eighth Semester (Spring 2025)
+   - The final semester included **Engineering Project Management**, **Artificial Intelligence (AI)**, and **Digital Image Processing (DIP)**.
+   - This semester primarily focused on advanced concepts and project-based learning:
+     - [Artificial Intelligence Codes](./semester_8_(spring-25)/artificial_intelligence/codes)
+     - [Digital Image Processing Codes](./semester_8_(spring-25)/digital_image_processing/codes)
+   - Discover my work for the eighth semester [here](./semester_8_(spring-25)/).
+
+
+This repository is now almost complete, encapsulating my academic journey through Computer System Engineering at UET, Peshawar. However, learning is an ongoing process, and I am always looking for ways to improve, refine, and expand upon the content. If you have insights, suggestions, or resources that could enhance this repository, feel free to collaborate. Let’s continue growing and learning together!
