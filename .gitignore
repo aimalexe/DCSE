@@ -15,6 +15,7 @@
 *.pdf
 *.doc*
 *.o
+*.pptx
 
 # ignore compilation output of ModelSim
 *.mti

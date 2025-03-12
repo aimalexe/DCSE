@@ -1,0 +1,1 @@
+cat data.txt | python mapper.py  | sort | python reducer.py; 
